@@ -33,7 +33,11 @@
 
     <header class="bg-white border-b border-gray-200 fixed w-full z-50 top-0">
       <div class="container mx-auto px-4 h-16 flex justify-between items-center">
-        <a href="index.html" class="text-xl logo text-primary">Carpath</a>
+        <a href="index.html" class="flex items-center">
+          <div class="h-10 w-10 rounded-full bg-gray-100 border border-gray-200 flex items-center justify-center overflow-hidden text-[8px] text-gray-400">
+            
+          </div>
+        </a>
         <nav class="hidden lg:flex space-x-8 text-sm font-medium text-gray-900">
           <a href="cars.html" class="hover:text-gray-500 py-5">お車を探す</a>
           <a href="maintenance.html" class="hover:text-gray-500 py-5">車検・整備</a>
@@ -108,9 +112,51 @@
           </div>
 
         </div>
+
+        <!-- CTA Section -->
+        <div class="bg-gray-50 border border-gray-200 p-8 md:p-12 text-center mt-12 mb-8">
+          <h2 class="text-xl md:text-2xl font-bold mb-4">ご予約・ご相談はお気軽に</h2>
+          <p class="text-sm leading-relaxed text-gray-700 mb-8">
+            週末は混み合うことがございますので、事前のご予約をおすすめしております。<br class="hidden md:block">
+            また、洗車でお待ちの間に、お車の気になる調子や保険の見直しなど「車のプロ」に何でもご相談いただけます。
+          </p>
+          <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <button class="bg-lineGreen text-white px-8 py-4 font-bold text-sm flex items-center justify-center hover:bg-green-600 transition-colors">
+              <i class="ri-line-fill mr-2 text-lg"></i> LINEで予約する
+            </button>
+            <a href="tel:0859-33-9991" class="bg-white border border-primary text-primary px-8 py-4 font-bold text-sm flex items-center justify-center hover:bg-gray-50 transition-colors">
+              <i class="ri-phone-fill mr-2"></i> 電話で予約する
+            </a>
+          </div>
+        </div>
+
       </div>
     </main>
 
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-12 text-sm">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+          <a href="index.html" class="block mb-6 md:mb-0">
+            <div class="h-12 w-12 rounded-full bg-white border border-gray-200 flex items-center justify-center overflow-hidden text-[8px] text-gray-400">
+              
+            </div>
+          </a>
+          <div class="flex flex-wrap justify-center gap-4 md:gap-6">
+            <a href="cars.html" class="hover:text-gray-400">お車を探す</a>
+            <a href="maintenance.html" class="hover:text-gray-400">車検・整備</a>
+            <a href="wash.html" class="hover:text-gray-400">洗車</a>
+            <a href="purchase.html" class="hover:text-gray-400">買取・廃車</a>
+            <a href="insurance.html" class="hover:text-gray-400">自動車保険</a>
+          </div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-xs">
+          © 2026 株式会社パルマス Carpath. All rights reserved.
+        </div>
+      </div>
+    </footer>
+
+    <!-- Mobile Sticky CTA -->
     <div class="md:hidden fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 flex z-50 h-16">
       <a href="tel:0859-33-9991" class="flex-1 flex items-center justify-center text-primary font-bold text-sm border-r border-gray-200">
         <i class="ri-phone-fill mr-1"></i> 電話で予約
