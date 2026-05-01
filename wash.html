@@ -3,11 +3,8 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>米子手洗い洗車 - 株式会社パルマス Carpath（カーパス）</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <title>手洗い洗車 - Carpath</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com/3.4.16"></script>
     <script>
@@ -15,588 +12,117 @@
         theme: {
           extend: {
             colors: {
-              primary: '#1E88E5',
-              secondary: '#64B5F6',
-              lineGreen: '#00C300',
-              lineGreenDark: '#00A800'
+              primary: '#2B2C68',
+              accent: '#2563EB',
+              lineGreen: '#06C755',
             },
-            borderRadius: {
-              'button': '8px'
+            fontFamily: {
+              sans: ['"Noto Sans JP"', 'sans-serif'],
+              logo: ['"Helvetica Neue"', 'Arial', 'sans-serif']
             }
           }
         }
       }
     </script>
     <style>
-      body {
-        font-family: 'Noto Sans JP', sans-serif;
-      }
-      .hero-section {
-        background-image: linear-gradient(to right, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.8) 40%, rgba(255, 255, 255, 0) 100%), url('https://readdy.ai/api/search-image?query=Professional%20car%20wash%20service%20with%20staff%20carefully%20hand%20washing%20a%20luxury%20car%20with%20soft%20cloth%20and%20soap%20suds%2C%20bright%20clean%20environment%2C%20water%20droplets%20glistening%20on%20the%20car%20surface%2C%20attention%20to%20detail%2C%20high-end%20service%20atmosphere%2C%20blue%20sky%20background&width=1600&height=800&seq=123&orientation=landscape');
-        background-size: cover;
-        background-position: center;
-      }
-      .benefit-card, .course-card {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-      .benefit-card:hover, .course-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-      }
-      .step-card {
-        transition: transform 0.3s ease;
-      }
-      .step-card:hover {
-        transform: translateY(-5px);
-      }
-      .faq-item {
-        transition: all 0.3s ease;
-      }
+      body { font-family: 'Noto Sans JP', sans-serif; letter-spacing: 0.05em; color: #333; }
+      .logo { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; letter-spacing: 0.1em; }
     </style>
   </head>
-  <body class="bg-gray-50">
+  <body class="bg-white pb-16 md:pb-0">
 
-    <header class="bg-white shadow-sm fixed w-full z-50">
-      <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-        <a href="index.html" class="text-3xl font-['Pacifico'] text-primary">Carpath</a>
-        
-        <nav class="hidden lg:flex space-x-6 text-gray-700 font-medium text-sm">
-          <a href="cars.html" class="hover:text-primary transition-colors">お車を探す</a>
-          <a href="maintenance.html" class="hover:text-primary transition-colors">車検・整備</a>
-          <a href="wash.html" class="text-primary font-bold transition-colors border-b-2 border-primary">洗車</a>
-          <a href="purchase.html" class="hover:text-primary transition-colors">買取・廃車</a>
-          <a href="insurance.html" class="hover:text-primary transition-colors">自動車保険</a>
+    <header class="bg-white border-b border-gray-200 fixed w-full z-50 top-0">
+      <div class="container mx-auto px-4 h-16 flex justify-between items-center">
+        <a href="index.html" class="text-xl logo text-primary">Carpath</a>
+        <nav class="hidden lg:flex space-x-8 text-sm font-medium text-gray-900">
+          <a href="cars.html" class="hover:text-gray-500 py-5">お車を探す</a>
+          <a href="maintenance.html" class="hover:text-gray-500 py-5">車検・整備</a>
+          <a href="wash.html" class="font-bold border-b-2 border-primary py-5">洗車</a>
+          <a href="purchase.html" class="hover:text-gray-500 py-5">買取・廃車</a>
+          <a href="insurance.html" class="hover:text-gray-500 py-5">自動車保険</a>
         </nav>
-
-        <div class="flex items-center space-x-4">
-          <a href="tel:0859-33-9991" class="hidden md:flex items-center text-gray-700 hover:text-primary transition-colors">
-            <i class="ri-phone-line ri-lg mr-1 text-primary"></i>
-            <span class="font-medium text-sm">0859-33-9991</span>
-          </a>
-          <button class="bg-lineGreen text-white px-3 py-2 rounded-lg font-bold flex items-center hover:bg-lineGreenDark transition-colors text-sm">
-            <i class="ri-line-line mr-1"></i>LINE相談
-          </button>
-          
-          <button id="mobile-menu-btn" class="lg:hidden text-2xl text-gray-800 p-1">
-            <i class="ri-menu-line"></i>
-          </button>
-        </div>
+        <button id="mobile-menu-btn" class="lg:hidden text-2xl text-primary p-2">
+          <i class="ri-menu-line"></i>
+        </button>
       </div>
-
-      <nav id="mobile-menu" class="hidden lg:hidden bg-white border-t shadow-lg">
-        <div class="flex flex-col px-4 py-2 space-y-3 text-gray-700 font-medium">
-          <a href="index.html" class="py-2 border-b border-gray-50"><i class="ri-home-4-line mr-2 text-primary"></i>トップページ</a>
-          <a href="cars.html" class="py-2 border-b border-gray-50"><i class="ri-car-line mr-2 text-primary"></i>お車を探す（販売）</a>
-          <a href="maintenance.html" class="py-2 border-b border-gray-50"><i class="ri-tools-line mr-2 text-primary"></i>車検・整備</a>
-          <a href="wash.html" class="py-2 border-b border-gray-50 text-primary font-bold"><i class="ri-drop-line mr-2"></i>洗車</a>
-          <a href="purchase.html" class="py-2 border-b border-gray-50"><i class="ri-recycle-line mr-2 text-primary"></i>買取・廃車</a>
-          <a href="insurance.html" class="py-2"><i class="ri-shield-check-line mr-2 text-primary"></i>自動車保険</a>
+      <nav id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 absolute w-full">
+        <div class="flex flex-col px-4 py-4 space-y-4 text-sm font-medium">
+          <a href="index.html" class="block">トップページ</a>
+          <a href="wash.html" class="block text-primary font-bold">洗車</a>
         </div>
       </nav>
     </header>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const menuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const menuIcon = menuBtn.querySelector('i');
+    <main class="pt-24 pb-20">
+      <div class="container mx-auto px-4 max-w-4xl">
+        <h1 class="text-3xl font-bold mb-10 border-b-2 border-primary pb-2">CAR WASH<span class="block text-sm font-normal text-gray-500 mt-2">米子手洗い洗車館</span></h1>
 
-        if(menuBtn && mobileMenu) {
-          menuBtn.addEventListener('click', function() {
-            mobileMenu.classList.toggle('hidden');
-            if(mobileMenu.classList.contains('hidden')) {
-              menuIcon.classList.remove('ri-close-line');
-              menuIcon.classList.add('ri-menu-line');
-            } else {
-              menuIcon.classList.remove('ri-menu-line');
-              menuIcon.classList.add('ri-close-line');
-            }
-          });
-        }
-      });
-    </script>
-    <main class="pt-16">
-      <section class="hero-section pt-24 pb-16 md:pt-32 md:pb-24">
-        <div class="container mx-auto px-4 w-full">
-          <div class="max-w-3xl">
-            <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 leading-tight">
-              いつもの洗車、<br>もっと『お得に』に『気持ちよく』
-            </h1>
-            <p class="mt-4 text-lg md:text-xl text-gray-700">
-              米子手洗い洗車館カーパスが、<br>あなたのカーライフの「キレイ」と「安心」を<br>心を込めてお手伝いします。
-            </p>
-            <div class="mt-8 flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
-              <a href="#line" class="bg-lineGreen hover:bg-lineGreenDark text-white px-6 py-3 rounded-button font-medium text-center transition-colors flex items-center justify-center whitespace-nowrap">
-                <i class="ri-line-line mr-2"></i>LINEで予約・相談する
-              </a>
-              <a href="tel:0859-33-9991" class="bg-white hover:bg-gray-100 text-gray-800 border border-gray-300 px-6 py-3 rounded-button font-medium text-center transition-colors flex items-center justify-center whitespace-nowrap">
-                <i class="ri-phone-line mr-2"></i>電話で予約する
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="py-12 bg-white">
-        <div class="container mx-auto px-4">
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="benefit-card bg-white p-6 rounded-lg shadow-md border border-gray-100">
-              <div class="flex items-center mb-4">
-                <div class="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-full text-primary mr-4">
-                  <i class="ri-money-yen-circle-line ri-xl"></i>
-                </div>
-                <h3 class="text-xl font-semibold text-gray-800">お試し価格</h3>
-              </div>
-              <p class="mt-2 text-gray-600">￥1,000からの手頃な価格で、<br>手洗い洗車をご体験いただけます。</p>
-            </div>
-            <div class="benefit-card bg-white p-6 rounded-lg shadow-md border border-gray-100">
-              <div class="flex items-center mb-4">
-                <div class="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-full text-primary mr-4">
-                  <i class="ri-user-star-line ri-xl"></i>
-                </div>
-                <h3 class="text-xl font-semibold text-gray-800">熟練スタッフ</h3>
-              </div>
-              <p class="mt-2 text-gray-600">経験豊富なスタッフが<br>丁寧に手洗いいたします。</p>
-            </div>
-            <div class="benefit-card bg-white p-6 rounded-lg shadow-md border border-gray-100">
-              <div class="flex items-center mb-4">
-                <div class="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-full text-primary mr-4">
-                  <i class="ri-customer-service-2-line ri-xl"></i>
-                </div>
-                <h3 class="text-xl font-semibold text-gray-800">専門家に相談</h3>
-              </div>
-              <p class="mt-2 text-gray-600">車のプロに、<br>あらゆる疑問や悩みを相談できます。</p>
-            </div>
-            <div class="benefit-card bg-white p-6 rounded-lg shadow-md border border-gray-100">
-              <div class="flex items-center mb-4">
-                <div class="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-full text-primary mr-4">
-                  <i class="ri-shield-check-line ri-xl"></i>
-                </div>
-                <h3 class="text-xl font-semibold text-gray-800">無理な営業なし</h3>
-              </div>
-              <p class="mt-2 text-gray-600">お客様の意思を尊重し、<br>押し売りは一切いたしません。</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-          <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">あなたの「洗車の悩み」、カーパスが解決します</h2>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12">
-            <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-primary">
-              <p class="text-gray-700">「セルフ洗車は疲れるし、思ったよりキレイにならない…」</p>
-            </div>
-            <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-primary">
-              <p class="text-gray-700">「機械洗車は、大切な車に傷がつかないか心配…」</p>
-            </div>
-            <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-primary">
-              <p class="text-gray-700">「車内の細かい汚れやニオイがずっと気になっている…」</p>
-            </div>
-            <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-primary">
-              <p class="text-gray-700">「結局、どこに頼むのが一番いいのか分からない…」</p>
-            </div>
-          </div>
-          <div class="text-center">
-            <div class="mt-8">
-              <img src="https://readdy.ai/api/search-image?query=Professional%20car%20detailer%20hand%20washing%20a%20luxury%20car%20with%20careful%20attention%20to%20detail%2C%20soft%20microfiber%20cloth%2C%20soap%20suds%2C%20clean%20environment%2C%20bright%20lighting%2C%20showing%20the%20transformation%20from%20dirty%20to%20clean%2C%20professional%20equipment%20visible%20in%20background&width=800&height=400&seq=124&orientation=landscape" alt="手洗い洗車の様子" class="rounded-lg shadow-lg mx-auto">
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-          <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">カーパスを選ぶ「3つの嬉しい理由」</h2>
-          <div class="space-y-16 max-w-5xl mx-auto">
-            <div class="flex flex-col md:flex-row items-center gap-8">
-              <div class="md:w-1/2">
-                <div class="bg-blue-100 text-primary text-xl font-bold inline-block px-4 py-2 rounded-full mb-4">理由 1</div>
-                <h3 class="text-2xl font-bold text-gray-800 mb-4">
-                  想像以上の「キレイ」を、<br>この道3年以上の熟練スタッフが<br>実現します。
-                </h3>
-                <p class="text-gray-700 mb-4">私たちの洗車スタッフは、一台一台の状態を丁寧に見極め、心を込めて手洗いします。特に私たちが最も力を入れているのが<span class="font-bold text-primary">「室内清掃」</span>です。機械では届かないドアの内側やシートの隙間まで、スッキリと仕上げます。カーパス自慢の「気持ちいい」空間を、ぜひご体感ください。</p>
-              </div>
-              <div class="md:w-1/2">
-                <img src="https://readdy.ai/api/search-image?query=Professional%20car%20detailer%20cleaning%20car%20interior%20with%20meticulous%20attention%20to%20detail%2C%20cleaning%20between%20seats%20and%20dashboard%2C%20using%20specialized%20tools%2C%20bright%20clean%20environment%2C%20visible%20transformation%2C%20professional%20equipment&width=600&height=400&seq=125&orientation=landscape" alt="室内清掃の様子" class="rounded-lg shadow-lg w-full">
-              </div>
-            </div>
-            <div class="flex flex-col md:flex-row-reverse items-center gap-8">
-              <div class="md:w-1/2">
-                <div class="bg-blue-100 text-primary text-xl font-bold inline-block px-4 py-2 rounded-full mb-4">理由 2</div>
-                <h3 class="text-2xl font-bold text-gray-800 mb-4">
-                  驚きの「お試し価格」。<br>それは、あなたとの出会いを<br>大切にしたいからです。
-                </h3>
-                <p class="text-gray-700 mb-4">「こんなに丁寧なのに、なぜこんなに安いの？」とよく聞かれます。それは、この洗車が、私たちとお客様との<span class="font-bold text-primary">『最初の出会い』</span>だからです。まずは気軽に私たちの仕事ぶりを知っていただき、カーパスを好きになってほしい。そんな想いを込めた、ご挨拶代わりの特別な価格です。</p>
-              </div>
-              <div class="md:w-1/2">
-                <img src="https://readdy.ai/api/search-image?query=Happy%20customer%20receiving%20keys%20from%20car%20wash%20staff%2C%20smiling%2C%20handshake%2C%20clean%20shiny%20car%20in%20background%2C%20bright%20professional%20environment%2C%20customer%20satisfaction%2C%20price%20tag%20visible%20showing%20special%20offer%2C%20first%20meeting%20atmosphere&width=600&height=400&seq=126&orientation=landscape" alt="お客様との出会い" class="rounded-lg shadow-lg w-full">
-              </div>
-            </div>
-            <div class="flex flex-col md:flex-row items-center gap-8">
-              <div class="md:w-1/2">
-                <div class="bg-blue-100 text-primary text-xl font-bold inline-block px-4 py-2 rounded-full mb-4">理由 3</div>
-                <h3 class="text-2xl font-bold text-gray-800 mb-4">
-                  洗車だけじゃない。<br>「車のプロ」に<br>日頃の疑問を相談できます。
-                </h3>
-                <p class="text-gray-700 mb-4">私たちは、新車・中古車販売から、国家資格を持つ整備士が在籍する認証工場での車検・整備まで行う、お車の総合サポート企業です。洗車の待ち時間などに、最近気になるお車の調子や乗り換えのご相談など、何でもお声がけください。販売担当や整備担当が親身になってお話を伺います。もちろん、相談したからといって無理な営業は一切いたしません。</p>
-              </div>
-              <div class="md:w-1/2">
-                <img src="https://readdy.ai/api/search-image?query=Professional%20mechanic%20in%20uniform%20consulting%20with%20customer%20about%20car%20maintenance%2C%20looking%20at%20engine%20together%2C%20friendly%20conversation%2C%20clean%20workshop%20environment%2C%20tools%20visible%2C%20trust%20relationship%2C%20no%20pressure%20sales%20atmosphere&width=600&height=400&seq=127&orientation=landscape" alt="整備士との相談" class="rounded-lg shadow-lg w-full">
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-          <h2 class="text-3xl font-bold text-center text-gray-800 mb-4">あなたにピッタリのコースは？</h2>
-          <p class="text-xl text-center text-gray-700 mb-12">選べる3つの手洗い洗車メニュー</p>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <div class="course-card bg-white rounded-lg shadow-md overflow-hidden">
-              <div class="bg-blue-100 p-4">
-                <h3 class="text-2xl font-bold text-center text-gray-800">ベーシック</h3>
-              </div>
-              <div class="p-6">
-                <div class="text-center mb-6">
-                  <p class="text-gray-600 mb-2">料金</p>
-                  <p class="text-lg">S: <span class="text-2xl font-bold text-primary">￥1,000</span></p>
-                  <p class="text-lg">M: <span class="text-2xl font-bold text-primary">￥1,500</span></p>
-                  <p class="text-lg">L: <span class="text-2xl font-bold text-primary">￥2,000</span></p>
-                </div>
-                <div class="mb-6">
-                  <p class="font-medium text-gray-800 mb-2">▼こんな方へおすすめ</p>
-                  <ul class="text-gray-700 space-y-2">
-                    <li class="flex items-start">
-                      <div class="w-5 h-5 flex items-center justify-center text-primary mt-0.5 mr-2">
-                        <i class="ri-check-line"></i>
+        <div class="mb-16">
+          <div class="bg-gray-100 aspect-[2/1] w-full flex items-center justify-center text-gray-400 mb-8">
                       </div>
-                      <span>まずはカーパスの実力を試してみたい</span>
-                    </li>
-                    <li class="flex items-start">
-                      <div class="w-5 h-5 flex items-center justify-center text-primary mt-0.5 mr-2">
-                        <i class="ri-check-line"></i>
-                      </div>
-                      <span>とにかく手軽に、こまめにキレイにしたい</span>
-                    </li>
-                  </ul>
-                </div>
-                <p class="text-gray-700">丁寧な手洗い洗車の基本を、リーズナブルにご提供します。</p>
-              </div>
-            </div>
-            <div class="course-card bg-white rounded-lg shadow-md overflow-hidden border-2 border-primary">
-              <div class="bg-primary p-4">
-                <h3 class="text-2xl font-bold text-center text-white">スタンダード</h3>
-              </div>
-              <div class="p-6">
-                <div class="text-center mb-6">
-                  <p class="text-gray-600 mb-2">料金</p>
-                  <p class="text-lg">S: <span class="text-2xl font-bold text-primary">￥2,500</span></p>
-                  <p class="text-lg">M: <span class="text-2xl font-bold text-primary">￥3,000</span></p>
-                  <p class="text-lg">L: <span class="text-2xl font-bold text-primary">￥3,500</span></p>
-                </div>
-                <div class="mb-6">
-                  <p class="font-medium text-gray-800 mb-2">▼こんな方へおすすめ</p>
-                  <ul class="text-gray-700 space-y-2">
-                    <li class="flex items-start">
-                      <div class="w-5 h-5 flex items-center justify-center text-primary mt-0.5 mr-2">
-                        <i class="ri-check-line"></i>
-                      </div>
-                      <span>キレイを長持ちさせて、日々の満足感をアップしたい</span>
-                    </li>
-                    <li class="flex items-start">
-                      <div class="w-5 h-5 flex items-center justify-center text-primary mt-0.5 mr-2">
-                        <i class="ri-check-line"></i>
-                      </div>
-                      <span>雨の日のドライブも楽しみたい</span>
-                    </li>
-                  </ul>
-                </div>
-                <p class="text-gray-700">ベーシックの内容に加え、ボディ撥水コーティングを施工。ワンランク上の輝きと保護性能を実現します。</p>
-              </div>
-            </div>
-            <div class="course-card bg-white rounded-lg shadow-md overflow-hidden">
-              <div class="bg-gray-800 p-4">
-                <h3 class="text-2xl font-bold text-center text-white">プレミアム</h3>
-              </div>
-              <div class="p-6">
-                <div class="text-center mb-6">
-                  <p class="text-gray-600 mb-2">料金</p>
-                  <p class="text-lg">S: <span class="text-2xl font-bold text-primary">￥6,500</span></p>
-                  <p class="text-lg">M: <span class="text-2xl font-bold text-primary">￥7,000</span></p>
-                  <p class="text-lg">L: <span class="text-2xl font-bold text-primary">￥7,500</span></p>
-                </div>
-                <div class="mb-6">
-                  <p class="font-medium text-gray-800 mb-2">▼こんな方へおすすめ</p>
-                  <ul class="text-gray-700 space-y-2">
-                    <li class="flex items-start">
-                      <div class="w-5 h-5 flex items-center justify-center text-primary mt-0.5 mr-2">
-                        <i class="ri-check-line"></i>
-                      </div>
-                      <span>大切な愛車に、特別な輝きと保護をプレゼントしたい</span>
-                    </li>
-                    <li class="flex items-start">
-                      <div class="w-5 h-5 flex items-center justify-center text-primary mt-0.5 mr-2">
-                        <i class="ri-check-line"></i>
-                      </div>
-                      <span>隅々まで完璧な仕上がりを求めている</span>
-                    </li>
-                  </ul>
-                </div>
-                <p class="text-gray-700">スタンダードの内容に加え、高品位ボディコートとフロントガラス撥水コートを施工。最上級の輝きと長期的な保護を提供します。</p>
-              </div>
-            </div>
-          </div>
+          <h2 class="text-2xl font-bold mb-4">いつもの洗車、もっと「気持ちよく」</h2>
+          <p class="text-sm leading-relaxed text-gray-700">
+            機械洗車では届かない細部の汚れや、車内の気になるニオイ。Carpathの専任スタッフが、一台一台の状態を見極め、丁寧に手洗いします。<br>
+            ご挨拶代わりの「お試し価格」で、プロの仕上がりをご体感ください。
+          </p>
         </div>
-      </section>
 
-      <section class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-          <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">ご利用はかんたん！3ステップ</h2>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            <div class="step-card text-center">
-              <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">1</div>
-              <h3 class="text-xl font-bold text-gray-800 mb-3">ご予約</h3>
-              <p class="text-gray-700">お電話、またはLINEで「洗車の予約」とお伝えください。ご希望の日時を承ります。</p>
-              <div class="mt-4 text-primary">
-                <div class="w-12 h-12 mx-auto flex items-center justify-center">
-                  <i class="ri-calendar-check-line ri-2x"></i>
-                </div>
-              </div>
-            </div>
-            <div class="step-card text-center">
-              <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">2</div>
-              <h3 class="text-xl font-bold text-gray-800 mb-3">ご来店</h3>
-              <p class="text-gray-700">お車をお預かりします。気になることは何でもご相談ください。</p>
-              <div class="mt-4 text-primary">
-                <div class="w-12 h-12 mx-auto flex items-center justify-center">
-                  <i class="ri-store-2-line ri-2x"></i>
-                </div>
-              </div>
-            </div>
-            <div class="step-card text-center">
-              <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">3</div>
-              <h3 class="text-xl font-bold text-gray-800 mb-3">お支払い</h3>
-              <p class="text-gray-700">お支払いは、現金または各種キャッシュレス決済に対応しております。</p>
-              <div class="mt-4 text-primary">
-                <div class="w-12 h-12 mx-auto flex items-center justify-center">
-                  <i class="ri-check-double-line ri-2x"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-          <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">よくあるご質問</h2>
-          <div class="max-w-3xl mx-auto space-y-4">
-            <div class="faq-item bg-white rounded-lg shadow-sm overflow-hidden border border-gray-100">
-              <div class="faq-question cursor-pointer p-6 flex justify-between items-center hover:bg-gray-50 transition-colors">
-                <div class="flex items-start">
-                  <div class="w-6 h-6 flex items-center justify-center text-primary mr-3 mt-0.5">
-                    <i class="ri-question-line"></i>
-                  </div>
-                  <h3 class="text-lg font-medium text-gray-800">本当に売り込みはありませんか？</h3>
-                </div>
-                <div class="w-6 h-6 flex items-center justify-center text-gray-400 faq-icon">
-                  <i class="ri-arrow-down-s-line"></i>
-                </div>
-              </div>
-              <div class="faq-answer px-6 pb-6 pt-0 hidden">
-                <p class="text-gray-700 ml-9">はい、固くお約束します。「お客様に喜んでいただくこと」が私たちの第一のモットーです。お客様が望まないご提案は一切いたしませんので、ご安心ください。</p>
-              </div>
-            </div>
-            <div class="faq-item bg-white rounded-lg shadow-sm overflow-hidden border border-gray-100">
-              <div class="faq-question cursor-pointer p-6 flex justify-between items-center hover:bg-gray-50 transition-colors">
-                <div class="flex items-start">
-                  <div class="w-6 h-6 flex items-center justify-center text-primary mr-3 mt-0.5">
-                    <i class="ri-question-line"></i>
-                  </div>
-                  <h3 class="text-lg font-medium text-gray-800">予約は必要ですか？</h3>
-                </div>
-                <div class="w-6 h-6 flex items-center justify-center text-gray-400 faq-icon">
-                  <i class="ri-arrow-down-s-line"></i>
-                </div>
-              </div>
-              <div class="faq-answer px-6 pb-6 pt-0 hidden">
-                <p class="text-gray-700 ml-9">お客様をお待たせしないためにも、事前のご予約をおすすめしております。お電話またはLINEでお気軽にご連絡ください。</p>
-              </div>
-            </div>
-            <div class="faq-item bg-white rounded-lg shadow-sm overflow-hidden border border-gray-100">
-              <div class="faq-question cursor-pointer p-6 flex justify-between items-center hover:bg-gray-50 transition-colors">
-                <div class="flex items-start">
-                  <div class="w-6 h-6 flex items-center justify-center text-primary mr-3 mt-0.5">
-                    <i class="ri-question-line"></i>
-                  </div>
-                  <h3 class="text-lg font-medium text-gray-800">作業時間はどのくらいですか？</h3>
-                </div>
-                <div class="w-6 h-6 flex items-center justify-center text-gray-400 faq-icon">
-                  <i class="ri-arrow-down-s-line"></i>
-                </div>
-              </div>
-              <div class="faq-answer px-6 pb-6 pt-0 hidden">
-                <p class="text-gray-700 ml-9">コースや当日の混雑状況にもよりますが、ベーシックコースで30分〜1時間程度が目安となります。詳しくはお予約の際にお尋ねください。</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="py-16 bg-white border-t border-gray-100">
-        <div class="container mx-auto px-4">
-          <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">店舗情報・アクセス</h2>
-          <div class="flex flex-col md:flex-row gap-8 max-w-5xl mx-auto">
-            <div class="md:w-1/2">
-              <div class="bg-gray-50 p-8 rounded-lg shadow-sm border border-gray-100 h-full">
-                <h3 class="text-2xl font-bold text-gray-800 mb-2">Carpath ーカーパスー</h3>
-                <p class="text-gray-500 mb-6 border-b border-gray-200 pb-4">株式会社パルマス / スズキ副代理店</p>
-                
-                <div class="space-y-5 text-gray-700">
-                  <div class="flex items-start">
-                    <div class="w-6 h-6 flex items-center justify-center text-primary mt-0.5 mr-3">
-                      <i class="ri-map-pin-line ri-lg"></i>
-                    </div>
-                    <span>〒683-0027<br>鳥取県米子市陰田町232-1</span>
-                  </div>
-
-                  <div class="flex items-start">
-                    <div class="w-6 h-6 flex items-center justify-center text-primary mt-0.5 mr-3">
-                      <i class="ri-time-line ri-lg"></i>
-                    </div>
-                    <div>
-                      <p class="font-bold text-gray-800">営業時間</p>
-                      <p class="text-sm"><span class="inline-block w-24">販売・整備:</span> 9:00 ～ 18:00</p>
-                      <p class="text-sm"><span class="inline-block w-24 font-bold text-primary">洗車事業:</span> <span class="font-bold text-primary">10:00 ～ 18:00</span></p>
-                    </div>
-                  </div>
-
-                  <div class="flex items-start">
-                    <div class="w-6 h-6 flex items-center justify-center text-primary mt-0.5 mr-3">
-                      <i class="ri-calendar-close-line ri-lg"></i>
-                    </div>
-                    <div>
-                      <p class="font-bold text-gray-800">定休日</p>
-                      <p>毎週日曜日・祝日</p>
-                      <p>第1・第3月曜日</p>
-                    </div>
-                  </div>
-
-                  <div class="flex items-start">
-                    <div class="w-6 h-6 flex items-center justify-center text-primary mt-0.5 mr-3">
-                      <i class="ri-phone-line ri-lg"></i>
-                    </div>
-                    <span class="font-bold text-lg">0859-33-9991</span>
-                  </div>
-                </div>
-
-                <div class="mt-8 pt-6 border-t border-gray-200 text-gray-700">
-                  <p class="text-lg font-bold text-gray-800 mb-2">アクセス</p>
-                  <p>米子駅から車で約5分 / 山陰道 米子中IC降りてすぐ</p>
-                </div>
-              </div>
-            </div>
-            <div class="md:w-1/2">
-              <div class="rounded-lg overflow-hidden shadow-sm border border-gray-100 h-full" style="min-height: 350px;">
-                <iframe
-                src="https://maps.google.com/maps?q=鳥取県米子市陰田町232-1&t=&z=16&ie=UTF8&iwloc=&output=embed"
-                width="100%"
-                height="100%"
-                style="border:0;"
-                allowfullscreen=""
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-              ></iframe>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="py-16 bg-blue-50">
-        <div class="container mx-auto px-4 text-center">
-          <h2 class="text-3xl font-bold text-gray-800 mb-6">さあ、あなたの愛車に、最高の「気持ちいい」を。</h2>
-          <p class="text-xl text-gray-700 mb-8">ご予約・ご相談を、心よりお待ちしております。</p>
-          <div class="flex flex-col md:flex-row justify-center gap-4 max-w-lg mx-auto">
-            <a href="#line" class="bg-lineGreen hover:bg-lineGreenDark text-white px-6 py-4 rounded-button font-bold text-center transition-colors flex items-center justify-center whitespace-nowrap shadow-lg">
-              <i class="ri-line-line ri-lg mr-2"></i>LINEで予約・相談する
-            </a>
-            <a href="tel:0859-33-9991" class="bg-white hover:bg-gray-100 text-gray-800 border border-gray-300 px-6 py-4 rounded-button font-bold text-center transition-colors flex items-center justify-center whitespace-nowrap">
-              <i class="ri-phone-line ri-lg mr-2"></i>電話で予約する
-            </a>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="bg-gray-800 text-white pt-12 pb-8">
-      <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 border-b border-gray-700 pb-8">
+        <h2 class="text-2xl font-bold mb-8">MENU & PRICE</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
           
-          <div>
-            <a href="index.html" class="text-3xl font-['Pacifico'] text-white">Carpath</a>
-            <p class="mt-2 text-gray-400 text-sm">株式会社パルマス / スズキ副代理店</p>
-            <div class="mt-4 text-sm text-gray-400 leading-relaxed">
-              <p>〒683-0027 鳥取県米子市陰田町232-1</p>
-              <p>TEL: 0859-33-9991</p>
-              <p class="mt-2">営業時間: 9:00～18:00（洗車は10:00～）</p>
-              <p>定休日: 日曜・祝日、第1・第3月曜日</p>
+          <div class="border border-gray-200 p-6 flex flex-col">
+            <h3 class="text-xl font-bold mb-4 border-b border-gray-200 pb-2">ベーシック</h3>
+            <div class="mb-6 flex-grow">
+              <p class="text-xs text-gray-500 mb-2">手洗い洗車基本コース</p>
+              <ul class="text-sm space-y-2">
+                <li>Sサイズ: ￥1,000</li>
+                <li>Mサイズ: ￥1,500</li>
+                <li>Lサイズ: ￥2,000</li>
+              </ul>
             </div>
           </div>
 
-          <div>
-            <h4 class="font-bold text-lg mb-4">サービス</h4>
-            <ul class="space-y-2 text-sm text-gray-400">
-              <li><a href="cars.html" class="hover:text-white transition-colors">お車を探す（新車・中古車）</a></li>
-              <li><a href="maintenance.html" class="hover:text-white transition-colors">車検・整備・メンテナンス</a></li>
-              <li><a href="wash.html" class="text-white font-bold transition-colors">米子手洗い洗車</a></li>
-              <li><a href="purchase.html" class="hover:text-white transition-colors">買取・無料出張廃車</a></li>
-              <li><a href="insurance.html" class="hover:text-white transition-colors">自動車保険（三井住友海上）</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 class="font-bold text-lg mb-4">企業情報</h4>
-            <ul class="space-y-2 text-sm text-gray-400">
-              <li><a href="index.html" class="hover:text-white transition-colors">トップページ</a></li>
-              <li><a href="#" class="hover:text-white transition-colors">会社概要・代表挨拶</a></li>
-              <li><a href="tel:0859-33-9991" class="hover:text-white transition-colors">お問い合わせ</a></li>
-            </ul>
-            <div class="mt-6 flex space-x-4">
-              <a href="#" class="w-10 h-10 bg-lineGreen text-white flex items-center justify-center rounded-full hover:bg-lineGreenDark transition-colors">
-                <i class="ri-line-line ri-lg"></i>
-              </a>
+          <div class="border-2 border-primary p-6 flex flex-col">
+            <span class="text-xs font-bold text-primary mb-1">RECOMMEND</span>
+            <h3 class="text-xl font-bold mb-4 border-b border-gray-200 pb-2">スタンダード</h3>
+            <div class="mb-6 flex-grow">
+              <p class="text-xs text-gray-500 mb-2">撥水コーティングプラス</p>
+              <ul class="text-sm space-y-2 font-bold">
+                <li>Sサイズ: ￥2,500</li>
+                <li>Mサイズ: ￥3,000</li>
+                <li>Lサイズ: ￥3,500</li>
+              </ul>
             </div>
           </div>
 
-        </div>
-        <div class="mt-8 text-center text-sm text-gray-500">
-          <p>© 2026 株式会社パルマス Carpath. All rights reserved.</p>
+          <div class="border border-gray-200 p-6 flex flex-col bg-gray-50">
+            <h3 class="text-xl font-bold mb-4 border-b border-gray-300 pb-2">プレミアム</h3>
+            <div class="mb-6 flex-grow">
+              <p class="text-xs text-gray-500 mb-2">高品位コート＋ガラス撥水</p>
+              <ul class="text-sm space-y-2">
+                <li>Sサイズ: ￥6,500</li>
+                <li>Mサイズ: ￥7,000</li>
+                <li>Lサイズ: ￥7,500</li>
+              </ul>
+            </div>
+          </div>
+
         </div>
       </div>
-    </footer>
-    <script id="faqScript">
-      document.addEventListener('DOMContentLoaded', function() {
-        const faqQuestions = document.querySelectorAll('.faq-question');
-        faqQuestions.forEach(question => {
-          question.addEventListener('click', function() {
-            const answer = this.nextElementSibling;
-            const icon = this.querySelector('.faq-icon i');
-            if (answer.classList.contains('hidden')) {
-              answer.classList.remove('hidden');
-              icon.classList.remove('ri-arrow-down-s-line');
-              icon.classList.add('ri-arrow-up-s-line');
-              this.classList.add('border-b', 'border-gray-100');
-            } else {
-              answer.classList.add('hidden');
-              icon.classList.remove('ri-arrow-up-s-line');
-              icon.classList.add('ri-arrow-down-s-line');
-              this.classList.remove('border-b', 'border-gray-100');
-            }
-          });
-        });
+    </main>
+
+    <div class="md:hidden fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 flex z-50 h-16">
+      <a href="tel:0859-33-9991" class="flex-1 flex items-center justify-center text-primary font-bold text-sm border-r border-gray-200">
+        <i class="ri-phone-fill mr-1"></i> 電話で予約
+      </a>
+      <a href="#" class="flex-1 flex items-center justify-center bg-lineGreen text-white font-bold text-sm">
+        <i class="ri-line-fill mr-1 text-lg"></i> LINE予約
+      </a>
+    </div>
+
+    <script>
+      document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+        document.getElementById('mobile-menu').classList.toggle('hidden');
       });
     </script>
   </body>
