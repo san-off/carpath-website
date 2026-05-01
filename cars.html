@@ -3,11 +3,10 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>お車を探す - 株式会社パルマス Carpath（カーパス）</title>
+    <title>株式会社パルマス - Carpath（カーパス）| 米子市のワンストップ・カーライフサポート</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com/3.4.16"></script>
     <script>
@@ -15,292 +14,197 @@
         theme: {
           extend: {
             colors: {
-              primary: '#1E88E5',
-              lineGreen: '#00C300',
-              lineGreenDark: '#00A800',
-              priceRed: '#E53935'
+              primary: '#2B2C68',
+              accent: '#2563EB',
+              lineGreen: '#06C755',
+            },
+            fontFamily: {
+              sans: ['"Noto Sans JP"', 'sans-serif'],
+              logo: ['"Helvetica Neue"', 'Arial', 'sans-serif']
             }
           }
         }
       }
     </script>
     <style>
-      body { font-family: 'Noto Sans JP', sans-serif; }
-      .car-image-placeholder {
-        background-color: #E0E0E0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        aspect-ratio: 4 / 3;
-      }
+      body { font-family: 'Noto Sans JP', sans-serif; letter-spacing: 0.05em; color: #333; }
+      .logo { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; letter-spacing: 0.1em; }
     </style>
   </head>
-  <body class="bg-gray-100">
-
-    <header class="bg-white shadow-sm fixed w-full z-50">
-      <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-        <a href="index.html" class="text-3xl font-['Pacifico'] text-primary">Carpath</a>
+  <body class="bg-white pb-16 md:pb-0">
+    
+    <!-- Header -->
+    <header class="bg-white border-b border-gray-200 fixed w-full z-50 top-0">
+      <div class="container mx-auto px-4 h-16 flex justify-between items-center">
+        <a href="index.html" class="text-xl logo text-primary">Carpath</a>
         
-        <nav class="hidden lg:flex space-x-6 text-gray-700 font-medium text-sm">
-          <a href="cars.html" class="hover:text-primary transition-colors">お車を探す</a>
-          <a href="maintenance.html" class="hover:text-primary transition-colors">車検・整備</a>
-          <a href="wash.html" class="hover:text-primary transition-colors">洗車</a>
-          <a href="purchase.html" class="hover:text-primary transition-colors">買取・廃車</a>
-          <a href="insurance.html" class="hover:text-primary transition-colors">自動車保険</a>
+        <nav class="hidden lg:flex space-x-8 text-sm font-medium text-gray-900">
+          <a href="cars.html" class="hover:text-gray-500 transition-colors">お車を探す</a>
+          <a href="maintenance.html" class="hover:text-gray-500 transition-colors">車検・整備</a>
+          <a href="wash.html" class="hover:text-gray-500 transition-colors">洗車</a>
+          <a href="purchase.html" class="hover:text-gray-500 transition-colors">買取・廃車</a>
+          <a href="insurance.html" class="hover:text-gray-500 transition-colors">自動車保険</a>
         </nav>
 
         <div class="flex items-center space-x-4">
-          <a href="tel:0859-33-9991" class="hidden md:flex items-center text-gray-700 hover:text-primary transition-colors">
-            <i class="ri-phone-line ri-lg mr-1 text-primary"></i>
-            <span class="font-medium text-sm">0859-33-9991</span>
-          </a>
-          <button class="bg-lineGreen text-white px-3 py-2 rounded-lg font-bold flex items-center hover:bg-lineGreenDark transition-colors text-sm">
-            <i class="ri-line-line mr-1"></i>LINE相談
-          </button>
-          
-          <button id="mobile-menu-btn" class="lg:hidden text-2xl text-gray-800 p-1">
+          <button id="mobile-menu-btn" class="lg:hidden text-2xl text-primary p-2">
             <i class="ri-menu-line"></i>
           </button>
         </div>
       </div>
 
-      <nav id="mobile-menu" class="hidden lg:hidden bg-white border-t shadow-lg">
-        <div class="flex flex-col px-4 py-2 space-y-3 text-gray-700 font-medium">
-          <a href="index.html" class="py-2 border-b border-gray-50"><i class="ri-home-4-line mr-2 text-primary"></i>トップページ</a>
-          <a href="cars.html" class="py-2 border-b border-gray-50"><i class="ri-car-line mr-2 text-primary"></i>お車を探す（販売）</a>
-          <a href="maintenance.html" class="py-2 border-b border-gray-50"><i class="ri-tools-line mr-2 text-primary"></i>車検・整備</a>
-          <a href="wash.html" class="py-2 border-b border-gray-50"><i class="ri-drop-line mr-2 text-primary"></i>洗車</a>
-          <a href="purchase.html" class="py-2 border-b border-gray-50"><i class="ri-recycle-line mr-2 text-primary"></i>買取・廃車</a>
-          <a href="insurance.html" class="py-2"><i class="ri-shield-check-line mr-2 text-primary"></i>自動車保険</a>
+      <!-- Mobile Menu -->
+      <nav id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 absolute w-full">
+        <div class="flex flex-col px-4 py-4 space-y-4 text-sm font-medium">
+          <a href="index.html" class="block">トップページ</a>
+          <a href="cars.html" class="block">お車を探す</a>
+          <a href="maintenance.html" class="block">車検・整備</a>
+          <a href="wash.html" class="block">洗車</a>
+          <a href="purchase.html" class="block">買取・廃車</a>
+          <a href="insurance.html" class="block">自動車保険</a>
         </div>
       </nav>
     </header>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const menuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const menuIcon = menuBtn.querySelector('i');
-
-        if(menuBtn && mobileMenu) {
-          menuBtn.addEventListener('click', function() {
-            mobileMenu.classList.toggle('hidden');
-            if(mobileMenu.classList.contains('hidden')) {
-              menuIcon.classList.remove('ri-close-line');
-              menuIcon.classList.add('ri-menu-line');
-            } else {
-              menuIcon.classList.remove('ri-menu-line');
-              menuIcon.classList.add('ri-close-line');
-            }
-          });
-        }
-      });
-    </script>
-
-    <main class="pt-20">
-      <section class="bg-primary py-12 text-white">
-        <div class="container mx-auto px-4 text-center">
-          <h1 class="text-3xl font-bold mb-2 text-white">お車を探す</h1>
-          <p class="text-blue-100">新車販売・厳選中古車</p>
-        </div>
-      </section>
-
-      <section class="py-12 bg-white">
-        <div class="container mx-auto px-4">
-          <div class="max-w-4xl mx-auto">
-            <div class="flex flex-col md:flex-row items-center gap-8">
-              <div class="md:w-1/3">
-                <div class="border-4 border-primary p-6 text-center rounded-xl">
-                  <span class="text-primary font-bold">SUZUKI</span>
-                  <h2 class="text-2xl font-bold text-gray-800 mt-2">スズキ副代理店</h2>
-                </div>
-              </div>
-              <div class="md:w-2/3">
-                <h3 class="text-xl font-bold text-gray-800 mb-4">スズキの新車はもちろん、全メーカー対応可能！</h3>
-                <p class="text-gray-600 leading-relaxed">
-                  当店はスズキの副代理店として、ジムニーやハスラーなどの人気車種を多数取り扱っております。また、トヨタ・ホンダ・ダイハツなど、他メーカーの新車販売もお任せください。ワンストップの強みを活かし、ナビやコーティングを含めたお得なご提案をいたします。
-                </p>
-              </div>
-            </div>
+    <main class="pt-16">
+      <!-- Hero -->
+      <section class="bg-gray-100 py-20 md:py-32 relative">
+        <div class="absolute inset-0 z-0 bg-gray-200 flex items-center justify-center text-gray-400">
+                  </div>
+        <div class="absolute inset-0 bg-white/80 md:bg-white/60 z-10"></div>
+        <div class="container mx-auto px-4 relative z-20">
+          <div class="max-w-2xl">
+            <p class="text-xs font-bold tracking-widest mb-4">スズキ副代理店 / 鳥取県米子市</p>
+            <h1 class="text-3xl md:text-5xl font-bold leading-tight mb-6 text-primary">
+              販売・整備・洗車から<br>コーティングまで<br>一拠点でフルサポート。
+            </h1>
+            <p class="text-sm md:text-base text-gray-700 mb-8 leading-relaxed">
+              Carpathはお車探しから日々のメンテナンス、美観維持まで、自社完結のワンストップサービスでお客様に寄り添います。
+            </p>
           </div>
         </div>
       </section>
 
-      <section class="py-12">
+      <!-- Services -->
+      <section class="py-20 bg-white">
         <div class="container mx-auto px-4">
-          <div class="flex justify-between items-end mb-8 border-b-2 border-primary pb-2">
-            <h2 class="text-2xl font-bold text-gray-800">厳選中古車 在庫一覧</h2>
-            </div>
-
-          <div class="space-y-6">
-            <div class="bg-white rounded-lg shadow-md overflow-hidden flex flex-col md:flex-row border border-gray-200">
-              <div class="md:w-1/3 relative">
-                <div class="car-image-placeholder">
-                  <i class="ri-image-line text-4xl text-gray-400"></i>
-                  <span class="absolute bottom-2 right-2 bg-black/60 text-white text-xs px-2 py-1 rounded">24枚</span>
-                </div>
-              </div>
-              <div class="md:w-2/3 p-4 flex flex-col justify-between">
-                <div>
-                  <div class="flex justify-between items-start mb-2">
-                    <h3 class="text-xl font-bold text-gray-800 hover:text-primary cursor-pointer transition-colors">
-                      スズキ ジムニー 660 XC 4WD
-                    </h3>
-                    <span class="bg-blue-100 text-primary text-xs px-2 py-1 rounded font-bold">届出済未使用車</span>
-                  </div>
-                  <p class="text-sm text-gray-500 mb-4">5MT / 登録済未使用車 / 純正ナビ / バックカメラ</p>
-                  
-                  <div class="flex flex-wrap items-end gap-6 bg-gray-50 p-4 rounded-lg">
-                    <div>
-                      <p class="text-xs text-gray-500">支払総額（税込）</p>
-                      <p class="text-3xl font-bold text-priceRed">215.0<span class="text-sm ml-1">万円</span></p>
-                    </div>
-                    <div class="border-l border-gray-300 pl-6">
-                      <p class="text-xs text-gray-500">車両本体価格</p>
-                      <p class="text-xl font-bold text-gray-800">205.0<span class="text-sm ml-1">万円</span></p>
-                    </div>
-                    <div class="flex-grow grid grid-cols-3 gap-2 text-center text-xs text-gray-600">
-                      <div class="border-l border-gray-200 pl-2">
-                        <p class="text-gray-400">年式</p>
-                        <p class="font-bold">2024(R6)</p>
-                      </div>
-                      <div class="border-l border-gray-200 pl-2">
-                        <p class="text-gray-400">走行</p>
-                        <p class="font-bold">10km</p>
-                      </div>
-                      <div class="border-l border-gray-200 pl-2">
-                        <p class="text-gray-400">車検</p>
-                        <p class="font-bold">R9/05</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="mt-4 flex flex-col md:flex-row gap-3">
-                  <a href="car-detail-jimny-0000-202605.html" class="flex-grow bg-white border border-primary text-primary py-2 rounded font-bold hover:bg-blue-50 transition-colors text-center">
-                    車両詳細を見る
-                  </a>
-                  <button class="flex-grow bg-lineGreen text-white py-2 rounded font-bold hover:bg-lineGreenDark transition-colors flex items-center justify-center">
-                    <i class="ri-line-line mr-2"></i>この車をLINEで問い合わせ
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <div class="bg-white rounded-lg shadow-md overflow-hidden flex flex-col md:flex-row border border-gray-200">
-              <div class="md:w-1/3 relative">
-                <div class="car-image-placeholder">
-                  <i class="ri-image-line text-4xl text-gray-400"></i>
-                </div>
-              </div>
-              <div class="md:w-2/3 p-4 flex flex-col justify-between">
-                <div>
-                  <div class="flex justify-between items-start mb-2">
-                    <h3 class="text-xl font-bold text-gray-800">
-                      ダイハツ タント カスタムRS
-                    </h3>
-                  </div>
-                  <p class="text-sm text-gray-500 mb-4">両側パワースライド / 全周囲カメラ / シートヒーター</p>
-                  
-                  <div class="flex flex-wrap items-end gap-6 bg-gray-50 p-4 rounded-lg">
-                    <div>
-                      <p class="text-xs text-gray-500">支払総額（税込）</p>
-                      <p class="text-3xl font-bold text-priceRed">158.0<span class="text-sm ml-1">万円</span></p>
-                    </div>
-                    <div class="border-l border-gray-300 pl-6">
-                      <p class="text-xs text-gray-500">車両本体価格</p>
-                      <p class="text-xl font-bold text-gray-800">149.0<span class="text-sm ml-1">万円</span></p>
-                    </div>
-                    <div class="flex-grow grid grid-cols-3 gap-2 text-center text-xs text-gray-600">
-                      <div class="border-l border-gray-200 pl-2">
-                        <p class="text-gray-400">年式</p>
-                        <p class="font-bold">2021(R3)</p>
-                      </div>
-                      <div class="border-l border-gray-200 pl-2">
-                        <p class="text-gray-400">走行</p>
-                        <p class="font-bold">2.4万km</p>
-                      </div>
-                      <div class="border-l border-gray-200 pl-2">
-                        <p class="text-gray-400">車検</p>
-                        <p class="font-bold">R6/12</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="mt-4 flex flex-col md:flex-row gap-3">
-                  <button class="flex-grow bg-white border border-primary text-primary py-2 rounded font-bold hover:bg-blue-50 transition-colors">車両詳細を見る</button>
-                  <button class="flex-grow bg-lineGreen text-white py-2 rounded font-bold hover:bg-lineGreenDark flex items-center justify-center">
-                    <i class="ri-line-line mr-2"></i>この車をLINEで問い合わせ
-                  </button>
-                </div>
-              </div>
-            </div>
+          <h2 class="text-2xl font-bold mb-12 text-center">SERVICES</h2>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
             
-            <p class="text-center text-gray-500 pt-4">※在庫情報は定期的に更新しておりますが、売約済みの際はご容赦ください。</p>
+            <div class="border-t border-gray-900 pt-4">
+              <div class="flex justify-between items-start mb-4">
+                <h3 class="text-lg font-bold">新車・中古車販売</h3>
+                <i class="ri-car-line text-2xl text-gray-400"></i>
+              </div>
+              <p class="text-sm text-gray-600 leading-relaxed">スズキ車の新車はもちろん、厳選した中古車も独自のルートで調達。最適な一台をご提案します。</p>
+            </div>
+
+            <div class="border-t border-gray-900 pt-4">
+              <div class="flex justify-between items-start mb-4">
+                <h3 class="text-lg font-bold">車検・整備</h3>
+                <i class="ri-tools-line text-2xl text-gray-400"></i>
+              </div>
+              <p class="text-sm text-gray-600 leading-relaxed">自社認証工場完備。国家資格を持つ整備士が、車検基準以上の独自基準で品質管理を行います。</p>
+            </div>
+
+            <div class="border-t border-gray-900 pt-4">
+              <div class="flex justify-between items-start mb-4">
+                <h3 class="text-lg font-bold">手洗い洗車</h3>
+                <i class="ri-drop-line text-2xl text-gray-400"></i>
+              </div>
+              <p class="text-sm text-gray-600 leading-relaxed mb-4">熟練スタッフによる極上の手洗い洗車。機械では届かない細部や車内清掃まで徹底的に仕上げます。</p>
+              <a href="wash.html" class="text-sm font-bold border-b border-primary pb-1 hover:text-gray-500">詳細を見る</a>
+            </div>
+
+            <div class="border-t border-gray-900 pt-4">
+              <div class="flex justify-between items-start mb-4">
+                <h3 class="text-lg font-bold">コーティング</h3>
+                <i class="ri-shield-star-line text-2xl text-gray-400"></i>
+              </div>
+              <p class="text-sm text-gray-600 leading-relaxed">KeePer正規取扱。圧倒的な艶と水弾きで愛車を徹底ガードし、新車のような輝きを維持します。</p>
+            </div>
+
+            <div class="border-t border-gray-900 pt-4">
+              <div class="flex justify-between items-start mb-4">
+                <h3 class="text-lg font-bold">自動車保険</h3>
+                <i class="ri-shield-user-line text-2xl text-gray-400"></i>
+              </div>
+              <p class="text-sm text-gray-600 leading-relaxed">万が一の際も、保険手続きから修理・補償のアドバイスまで自社工場との連携でスムーズに対応します。</p>
+            </div>
+
+            <div class="border-t border-gray-900 pt-4">
+              <div class="flex justify-between items-start mb-4">
+                <h3 class="text-lg font-bold">買取・廃車</h3>
+                <i class="ri-recycle-line text-2xl text-gray-400"></i>
+              </div>
+              <p class="text-sm text-gray-600 leading-relaxed">どんなお車でも適正価格でお引き取り。廃車を通じた資源循環の社会貢献にも力を入れています。</p>
+            </div>
+
           </div>
         </div>
       </section>
 
-      <section class="py-16 bg-blue-50 mt-12">
-        <div class="container mx-auto px-4 text-center">
-          <h2 class="text-2xl font-bold text-gray-800 mb-6">欲しい車、お探しします！</h2>
-          <p class="text-gray-600 mb-8">在庫にないお車でも、全国のオークションからあなたにぴったりの一台を探し出します。</p>
-          <div class="flex flex-col md:flex-row justify-center gap-4 max-w-lg mx-auto">
-            <button class="bg-lineGreen hover:bg-lineGreenDark text-white px-6 py-4 rounded-lg font-bold flex items-center justify-center">
-              <i class="ri-line-line ri-lg mr-2"></i>LINEでお取り寄せ相談
-            </button>
+      <!-- Info -->
+      <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+          <div class="max-w-4xl mx-auto flex flex-col md:flex-row gap-12">
+            <div class="md:w-1/2">
+              <h2 class="text-2xl font-bold mb-8">INFORMATION</h2>
+              <div class="space-y-6 text-sm">
+                <div>
+                  <p class="font-bold border-b border-gray-300 pb-2 mb-2">所在地</p>
+                  <p>〒683-0027<br>鳥取県米子市陰田町232-1</p>
+                </div>
+                <div>
+                  <p class="font-bold border-b border-gray-300 pb-2 mb-2">営業時間</p>
+                  <p>販売・整備: 9:00 ～ 18:00<br>洗車事業: 10:00 ～ 18:00</p>
+                </div>
+                <div>
+                  <p class="font-bold border-b border-gray-300 pb-2 mb-2">定休日</p>
+                  <p>日曜・祝日、第1・第3月曜日</p>
+                </div>
+              </div>
+            </div>
+            <div class="md:w-1/2 bg-gray-200 min-h-[300px] flex items-center justify-center text-gray-500">
+                           </div>
           </div>
         </div>
       </section>
     </main>
 
-    <footer class="bg-gray-800 text-white pt-12 pb-8">
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-12 text-sm">
       <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 border-b border-gray-700 pb-8">
-          
-          <div>
-            <a href="index.html" class="text-3xl font-['Pacifico'] text-white">Carpath</a>
-            <p class="mt-2 text-gray-400 text-sm">株式会社パルマス / スズキ副代理店</p>
-            <div class="mt-4 text-sm text-gray-400 leading-relaxed">
-              <p>〒683-0027 鳥取県米子市陰田町232-1</p>
-              <p>TEL: 0859-33-9991</p>
-              <p class="mt-2">営業時間: 9:00～18:00（洗車は10:00～）</p>
-              <p>定休日: 日曜・祝日、第1・第3月曜日</p>
-            </div>
+        <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+          <div class="logo text-xl mb-4 md:mb-0">Carpath</div>
+          <div class="flex space-x-6">
+            <a href="cars.html" class="hover:text-gray-400">お車を探す</a>
+            <a href="maintenance.html" class="hover:text-gray-400">車検・整備</a>
+            <a href="wash.html" class="hover:text-gray-400">洗車</a>
           </div>
-
-          <div>
-            <h4 class="font-bold text-lg mb-4">サービス</h4>
-            <ul class="space-y-2 text-sm text-gray-400">
-              <li><a href="cars.html" class="hover:text-white transition-colors">お車を探す（新車・中古車）</a></li>
-              <li><a href="maintenance.html" class="hover:text-white transition-colors">車検・整備・メンテナンス</a></li>
-              <li><a href="wash.html" class="hover:text-white transition-colors">米子手洗い洗車</a></li>
-              <li><a href="purchase.html" class="hover:text-white transition-colors">買取・無料出張廃車</a></li>
-              <li><a href="insurance.html" class="hover:text-white transition-colors">自動車保険（三井住友海上）</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 class="font-bold text-lg mb-4">企業情報</h4>
-            <ul class="space-y-2 text-sm text-gray-400">
-              <li><a href="index.html" class="hover:text-white transition-colors">トップページ</a></li>
-              <li><a href="#" class="hover:text-white transition-colors">会社概要・代表挨拶</a></li>
-              <li><a href="tel:0859-33-9991" class="hover:text-white transition-colors">お問い合わせ</a></li>
-            </ul>
-            <div class="mt-6 flex space-x-4">
-              <a href="#" class="w-10 h-10 bg-lineGreen text-white flex items-center justify-center rounded-full hover:bg-lineGreenDark transition-colors">
-                <i class="ri-line-line ri-lg"></i>
-              </a>
-            </div>
-          </div>
-
         </div>
-        <div class="mt-8 text-center text-sm text-gray-500">
-          <p>© 2026 株式会社パルマス Carpath. All rights reserved.</p>
+        <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-xs">
+          © 2026 株式会社パルマス Carpath. All rights reserved.
         </div>
       </div>
     </footer>
 
+    <!-- Mobile Sticky CTA -->
+    <div class="md:hidden fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 flex z-50 h-16">
+      <a href="tel:0859-33-9991" class="flex-1 flex items-center justify-center text-primary font-bold text-sm border-r border-gray-200 active:bg-gray-50">
+        <i class="ri-phone-fill mr-1"></i> 電話
+      </a>
+      <a href="#" class="flex-1 flex items-center justify-center bg-lineGreen text-white font-bold text-sm active:bg-green-600">
+        <i class="ri-line-fill mr-1 text-lg"></i> LINE予約・相談
+      </a>
+    </div>
+
+    <script>
+      document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+        const menu = document.getElementById('mobile-menu');
+        menu.classList.toggle('hidden');
+      });
+    </script>
   </body>
 </html>
