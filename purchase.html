@@ -33,7 +33,11 @@
 
     <header class="bg-white border-b border-gray-200 fixed w-full z-50 top-0">
       <div class="container mx-auto px-4 h-16 flex justify-between items-center">
-        <a href="index.html" class="text-xl logo text-primary">Carpath</a>
+        <a href="index.html" class="flex items-center">
+          <div class="h-10 w-10 rounded-full bg-gray-100 border border-gray-200 flex items-center justify-center overflow-hidden text-[8px] text-gray-400">
+            
+          </div>
+        </a>
         <nav class="hidden lg:flex space-x-8 text-sm font-medium text-gray-900">
           <a href="cars.html" class="hover:text-gray-500 py-5">お車を探す</a>
           <a href="maintenance.html" class="hover:text-gray-500 py-5">車検・整備</a>
@@ -48,14 +52,18 @@
       <nav id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 absolute w-full">
         <div class="flex flex-col px-4 py-4 space-y-4 text-sm font-medium">
           <a href="index.html" class="block">トップページ</a>
+          <a href="cars.html" class="block">お車を探す</a>
+          <a href="maintenance.html" class="block">車検・整備</a>
+          <a href="wash.html" class="block">洗車</a>
           <a href="purchase.html" class="block text-primary font-bold">買取・廃車</a>
+          <a href="insurance.html" class="block">自動車保険</a>
         </div>
       </nav>
     </header>
 
     <main class="pt-24 pb-20">
       <div class="container mx-auto px-4 max-w-4xl">
-        <h1 class="text-3xl font-bold mb-10 border-b-2 border-primary pb-2">PURCHASE<span class="block text-sm font-normal text-gray-500 mt-2">買取・廃車</span></h1>
+        <h1 class="text-3xl font-bold mb-10 border-b-2 border-primary pb-2">PURCHASE<span class="block text-sm font-normal text-gray-500 mt-2">お車の買取・お引き取り</span></h1>
 
         <div class="mb-16">
           <h2 class="text-xl font-bold mb-4">未来の山陰の為に、バトンを繋ぐ。</h2>
@@ -68,25 +76,67 @@
         <div class="bg-gray-50 p-8 mb-16 border border-gray-200">
           <h3 class="text-lg font-bold mb-4 text-primary">米子市内・近隣エリア 無料出張査定</h3>
           <p class="text-sm text-gray-700 mb-4">
-            「忙しい」「車検が切れている」「動かない」<br>
+            「忙しい」「車検が切れている」「しばらく動かしていない」<br>
             ご自宅や職場まで無料で査定に伺います。出張費・キャンセル料は一切かかりません。
           </p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
           <div>
-            <h3 class="text-lg font-bold mb-4 border-b border-gray-200 pb-2">中古車買取</h3>
-            <p class="text-sm text-gray-600 mb-4">自社で整備・販売まで行うため、中間コストをカットし高価買取を実現。スズキ車やオプション装備もしっかり評価します。</p>
+            <h3 class="text-lg font-bold mb-4 border-b border-gray-200 pb-2">愛車買取</h3>
+            <p class="text-sm text-gray-600 mb-4">自社で整備・販売まで行うため、中間コストをカットし高価買取を実現。メーカーを問わず、お車の状態や価値をしっかりと見極めて適正に評価いたします。</p>
           </div>
           <div>
-            <h3 class="text-lg font-bold mb-4 border-b border-gray-200 pb-2">廃車・不動車買取</h3>
-            <p class="text-sm text-gray-600 mb-4">多走行、古い車、動かない車でも部品や資源としての価値を見出します。引取り方法などお気軽にご相談ください。</p>
+            <h3 class="text-lg font-bold mb-4 border-b border-gray-200 pb-2">どんなお車でもご相談ください</h3>
+            <p class="text-sm text-gray-600 mb-4">年式が古いお車や、走行距離の多いお車、しばらく乗っていないお車でも、部品や資源としての価値を見出します。お引き取りの段取りなど、お気軽にご相談ください。</p>
+          </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="bg-gray-50 border border-gray-200 p-8 md:p-12 text-center mt-12 mb-8">
+          <h2 class="text-xl md:text-2xl font-bold mb-4">お車の査定・お引き取りのご相談</h2>
+          <p class="text-sm leading-relaxed text-gray-700 mb-8">
+            米子市内および近隣エリアへの無料出張査定を承っております。<br class="hidden md:block">
+            「まずは金額だけ知りたい」という方も、LINEでお車の写真を送るだけで概算査定が可能です。<br>
+            出張費やキャンセル料は一切いただきませんので、安心してお問い合わせください。
+          </p>
+          <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <button class="bg-lineGreen text-white px-8 py-4 font-bold text-sm flex items-center justify-center hover:bg-green-600 transition-colors">
+              <i class="ri-line-fill mr-2 text-lg"></i> LINEで無料査定
+            </button>
+            <a href="tel:0859-33-9991" class="bg-white border border-primary text-primary px-8 py-4 font-bold text-sm flex items-center justify-center hover:bg-gray-50 transition-colors">
+              <i class="ri-phone-fill mr-2"></i> 無料出張を依頼する
+            </a>
           </div>
         </div>
 
       </div>
     </main>
 
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-12 text-sm">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+          <a href="index.html" class="block mb-6 md:mb-0">
+            <div class="h-12 w-12 rounded-full bg-white border border-gray-200 flex items-center justify-center overflow-hidden text-[8px] text-gray-400">
+              
+            </div>
+          </a>
+          <div class="flex flex-wrap justify-center gap-4 md:gap-6">
+            <a href="cars.html" class="hover:text-gray-400">お車を探す</a>
+            <a href="maintenance.html" class="hover:text-gray-400">車検・整備</a>
+            <a href="wash.html" class="hover:text-gray-400">洗車</a>
+            <a href="purchase.html" class="hover:text-gray-400">買取・廃車</a>
+            <a href="insurance.html" class="hover:text-gray-400">自動車保険</a>
+          </div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-xs">
+          © 2026 株式会社パルマス Carpath. All rights reserved.
+        </div>
+      </div>
+    </footer>
+
+    <!-- Mobile Sticky CTA -->
     <div class="md:hidden fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 flex z-50 h-16">
       <a href="tel:0859-33-9991" class="flex-1 flex items-center justify-center text-primary font-bold text-sm border-r border-gray-200">
         <i class="ri-phone-fill mr-1"></i> 無料出張依頼
