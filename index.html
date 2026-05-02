@@ -17,6 +17,7 @@
               primary: '#2B2C68',
               accent: '#2563EB',
               lineGreen: '#06C755',
+              lineGreenHover: '#05B34C',
             },
             fontFamily: {
               sans: ['"Noto Sans JP"', 'sans-serif'],
@@ -29,25 +30,41 @@
     <style>
       body { font-family: 'Noto Sans JP', sans-serif; letter-spacing: 0.05em; color: #333; }
       .logo { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; letter-spacing: 0.1em; }
+      /* iOSのセーフエリア（ホームバーなど）を考慮した余白 */
+      @supports (padding-bottom: env(safe-area-inset-bottom)) {
+        .safe-pb { padding-bottom: calc(1rem + env(safe-area-inset-bottom)); }
+      }
     </style>
+    
+    <!-- Google Analytics (GA4) のダミーコード（実際はご自身のG-XXXXXXXを入れてください） -->
+    <!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    -->
   </head>
-  <body class="bg-white pb-16 md:pb-0">
+  <body class="bg-white pb-24 md:pb-0 relative">
     
     <!-- Header -->
-    <header class="bg-white border-b border-gray-200 fixed w-full z-50 top-0">
+    <header class="bg-white border-b border-gray-200 fixed w-full z-40 top-0 shadow-sm">
       <div class="container mx-auto px-4 h-16 flex justify-between items-center">
         <a href="index.html" class="flex items-center">
           <div class="h-10 w-10 rounded-full bg-gray-100 border border-gray-200 flex items-center justify-center overflow-hidden text-[8px] text-gray-400">
-            
+            <!-- ロゴ画像が入る想定 -->
           </div>
         </a>
         
         <nav class="hidden lg:flex space-x-8 text-sm font-medium text-gray-900">
-          <a href="cars.html" class="hover:text-gray-500 transition-colors">お車を探す</a>
-          <a href="maintenance.html" class="hover:text-gray-500 transition-colors">車検・整備</a>
-          <a href="wash.html" class="hover:text-gray-500 transition-colors">洗車</a>
-          <a href="purchase.html" class="hover:text-gray-500 transition-colors">買取・廃車</a>
-          <a href="insurance.html" class="hover:text-gray-500 transition-colors">自動車保険</a>
+          <a href="cars.html" class="hover:text-primary transition-colors">お車を探す</a>
+          <a href="maintenance.html" class="hover:text-primary transition-colors">車検・整備</a>
+          <a href="wash.html" class="hover:text-primary transition-colors">洗車</a>
+          <a href="coating.html" class="hover:text-primary transition-colors">コーティング</a>
+          <a href="purchase.html" class="hover:text-primary transition-colors">買取・廃車</a>
+          <a href="insurance.html" class="hover:text-primary transition-colors">自動車保険</a>
         </nav>
 
         <div class="flex items-center space-x-4">
@@ -58,14 +75,15 @@
       </div>
 
       <!-- Mobile Menu -->
-      <nav id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 absolute w-full">
+      <nav id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg">
         <div class="flex flex-col px-4 py-4 space-y-4 text-sm font-medium">
-          <a href="index.html" class="block">トップページ</a>
-          <a href="cars.html" class="block">お車を探す</a>
-          <a href="maintenance.html" class="block">車検・整備</a>
-          <a href="wash.html" class="block">洗車</a>
-          <a href="purchase.html" class="block">買取・廃車</a>
-          <a href="insurance.html" class="block">自動車保険</a>
+          <a href="index.html" class="block py-2 border-b border-gray-50">トップページ</a>
+          <a href="cars.html" class="block py-2 border-b border-gray-50">お車を探す</a>
+          <a href="maintenance.html" class="block py-2 border-b border-gray-50">車検・整備</a>
+          <a href="wash.html" class="block py-2 border-b border-gray-50">洗車</a>
+          <a href="coating.html" class="block py-2 border-b border-gray-50">コーティング</a>
+          <a href="purchase.html" class="block py-2 border-b border-gray-50">買取・廃車</a>
+          <a href="insurance.html" class="block py-2">自動車保険</a>
         </div>
       </nav>
     </header>
@@ -74,7 +92,7 @@
       <!-- Hero -->
       <section class="bg-gray-100 py-20 md:py-32 relative">
         <div class="absolute inset-0 z-0 bg-gray-200 flex items-center justify-center text-gray-400">
-          
+          <!-- ヒーロー画像が入る想定 -->
         </div>
         <div class="absolute inset-0 bg-white/80 md:bg-white/60 z-10"></div>
         <div class="container mx-auto px-4 relative z-20">
@@ -89,6 +107,44 @@
           </div>
         </div>
       </section>
+
+      <!-- 🌟【追加】高単価ページ（Aランク：車両詳細など）向け ページ内CTAコンポーネント -->
+      <!-- （※このブロックは「car-detail-[車種].html」等で特に効果を発揮します） -->
+      <section class="py-12 bg-blue-50/50 my-12 mx-4 md:mx-auto max-w-4xl rounded-2xl border border-blue-100">
+        <div class="px-6 text-center">
+          <span class="inline-block bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full mb-3">
+            無料相談・お見積り
+          </span>
+          <h2 class="text-xl md:text-2xl font-bold mb-6 text-gray-900">
+            お車について、お気軽にお問い合わせください
+          </h2>
+          
+          <div class="flex flex-col md:flex-row gap-4 justify-center max-w-2xl mx-auto">
+            <!-- 電話ボタン：イベント名を click_car_detail_tel に設定 -->
+            <a href="tel:0859-33-9991" 
+               data-ga-event="click_car_detail_tel"
+               class="group relative flex-1 bg-white border-2 border-primary text-primary hover:bg-primary hover:text-white rounded-xl p-4 transition-all duration-300 shadow-sm hover:shadow-md">
+              <p class="text-xs font-bold mb-1 opacity-80">お急ぎの方・直接話したい方</p>
+              <div class="flex items-center justify-center text-lg font-bold">
+                <i class="ri-phone-fill text-2xl mr-2"></i> 0859-33-9991
+              </div>
+              <p class="text-[10px] mt-1 opacity-70">営業時間: 9:00～18:00 (定休日除く)</p>
+            </a>
+
+            <!-- LINEボタン：イベント名を click_car_detail_line に設定 -->
+            <a href="#" 
+               data-ga-event="click_car_detail_line"
+               class="group relative flex-1 bg-lineGreen hover:bg-lineGreenHover text-white rounded-xl p-4 transition-all duration-300 shadow-sm hover:shadow-md">
+              <p class="text-xs font-bold mb-1 opacity-90">写真で簡単査定・24時間受付</p>
+              <div class="flex items-center justify-center text-lg font-bold">
+                <i class="ri-line-fill text-2xl mr-2"></i> LINEで相談する
+              </div>
+              <p class="text-[10px] mt-1 opacity-80">お友達追加後、メッセージを送信してください</p>
+            </a>
+          </div>
+        </div>
+      </section>
+      <!-- 🌟 ここまでCTAコンポーネント -->
 
       <!-- Services -->
       <section class="py-20 bg-white">
@@ -188,18 +244,19 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-primary text-white py-12 text-sm">
+    <footer class="bg-primary text-white py-12 text-sm pb-32 md:pb-12">
       <div class="container mx-auto px-4">
         <div class="flex flex-col md:flex-row justify-between items-center mb-8">
           <a href="index.html" class="block mb-6 md:mb-0">
             <div class="h-12 w-12 rounded-full bg-white border border-gray-200 flex items-center justify-center overflow-hidden text-[8px] text-gray-400">
-              
+              <!-- ロゴ画像が入る想定 -->
             </div>
           </a>
           <div class="flex flex-wrap justify-center gap-4 md:gap-6">
             <a href="cars.html" class="hover:text-gray-400">お車を探す</a>
             <a href="maintenance.html" class="hover:text-gray-400">車検・整備</a>
             <a href="wash.html" class="hover:text-gray-400">洗車</a>
+            <a href="coating.html" class="hover:text-gray-400">コーティング</a>
             <a href="purchase.html" class="hover:text-gray-400">買取・廃車</a>
             <a href="insurance.html" class="hover:text-gray-400">自動車保険</a>
           </div>
@@ -210,20 +267,65 @@
       </div>
     </footer>
 
-    <!-- Mobile Sticky CTA -->
-    <div class="md:hidden fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 flex z-50 h-16">
-      <a href="tel:0859-33-9991" class="flex-1 flex items-center justify-center text-primary font-bold text-sm border-r border-gray-200 active:bg-gray-50">
-        <i class="ri-phone-fill mr-1"></i> 電話
+    <!-- 🌟【改修版】Mobile Sticky CTA (スマホ用 フローティングCTA) -->
+    <!-- 画面下部にベタ付けせず、少し浮かせることで誤タップを防止し、押しやすさを向上 -->
+    <div class="md:hidden fixed bottom-4 left-4 right-4 z-50 flex gap-3 safe-pb">
+      
+      <!-- 電話ボタン (総合窓口として click_top_tel) -->
+      <a href="tel:0859-33-9991" 
+         data-ga-event="click_top_tel"
+         class="flex-1 bg-white border-2 border-primary text-primary rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.15)] flex flex-col items-center justify-center py-2.5 active:scale-95 transition-transform">
+        <span class="text-[10px] font-bold mb-0.5 text-gray-500">お急ぎの方</span>
+        <div class="flex items-center text-sm font-bold">
+          <i class="ri-phone-fill text-xl mr-1"></i> 電話する
+        </div>
       </a>
-      <a href="#" class="flex-1 flex items-center justify-center bg-lineGreen text-white font-bold text-sm active:bg-green-600">
-        <i class="ri-line-fill mr-1 text-lg"></i> LINE予約・相談
+      
+      <!-- LINEボタン (総合窓口として click_top_line) -->
+      <a href="#" 
+         data-ga-event="click_top_line"
+         class="flex-1 bg-lineGreen text-white rounded-2xl shadow-[0_4px_20px_rgba(0,199,85,0.3)] flex flex-col items-center justify-center py-2.5 active:scale-95 transition-transform">
+        <span class="text-[10px] font-bold mb-0.5 opacity-90">写真で簡単</span>
+        <div class="flex items-center text-[15px] font-bold">
+          <i class="ri-line-fill text-xl mr-1"></i> LINE相談
+        </div>
       </a>
+      
     </div>
 
+    <!-- JavaScript -->
     <script>
+      // 1. モバイルメニューの開閉
       document.getElementById('mobile-menu-btn').addEventListener('click', function() {
         const menu = document.getElementById('mobile-menu');
         menu.classList.toggle('hidden');
+      });
+
+      // 2. 🌟 GA4 イベントトラッキング共通モジュール
+      // data-ga-event 属性を持つすべての要素にクリックイベントを付与
+      document.addEventListener('DOMContentLoaded', () => {
+        const trackElements = document.querySelectorAll('[data-ga-event]');
+        
+        trackElements.forEach(element => {
+          element.addEventListener('click', function(e) {
+            // イベント名を取得 (例: 'click_car_detail_line')
+            const eventName = this.getAttribute('data-ga-event');
+            
+            // gtagが定義されている場合（本番環境）
+            if (typeof gtag === 'function') {
+              gtag('event', eventName, {
+                'event_category': 'CTA_Click',
+                'event_label': window.location.pathname, // どのURLで押されたかを記録
+                'page_type': eventName.split('_')[1] // 'car_detail' などを抽出して分析に活用可能
+              });
+              // 開発・確認用コンソール出力（本番では消してもOKです）
+              console.log('GA4送信完了:', eventName);
+            } else {
+              // GA4タグがないローカル環境でのテスト用
+              console.log('[テスト用] GA4イベント発火:', eventName);
+            }
+          });
+        });
       });
     </script>
   </body>
