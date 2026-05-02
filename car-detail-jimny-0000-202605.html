@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>スズキ ジムニー 660 XC 4WD - Carpath</title>
+    <title>【車種名が入ります】の詳細情報 - Carpath</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com/3.4.16"></script>
@@ -15,6 +15,7 @@
               primary: '#2B2C68',
               accent: '#2563EB',
               lineGreen: '#06C755',
+              lineGreenHover: '#05B34C',
             },
             fontFamily: {
               sans: ['"Noto Sans JP"', 'sans-serif'],
@@ -27,103 +28,259 @@
     <style>
       body { font-family: 'Noto Sans JP', sans-serif; letter-spacing: 0.05em; color: #333; }
       .logo { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; letter-spacing: 0.1em; }
-      .spec-table th { width: 35%; padding: 12px 0; border-bottom: 1px solid #eee; text-align: left; font-weight: normal; color: #666; }
-      .spec-table td { padding: 12px 0; border-bottom: 1px solid #eee; font-weight: bold; }
+      .spec-table { width: 100%; text-align: left; border-collapse: collapse; }
+      .spec-table th { background-color: #f3f4f6; border: 1px solid #e5e7eb; padding: 12px; font-size: 0.875rem; font-weight: 700; width: 30%; }
+      .spec-table td { border: 1px solid #e5e7eb; padding: 12px; font-size: 0.875rem; }
+      /* iOSのセーフエリア（ホームバーなど）を考慮した余白 */
+      @supports (padding-bottom: env(safe-area-inset-bottom)) {
+        .safe-pb { padding-bottom: calc(1rem + env(safe-area-inset-bottom)); }
+      }
     </style>
-  </head>
-  <body class="bg-white pb-20 md:pb-0">
 
-    <!-- Header (Simple for detail page) -->
-    <header class="bg-white border-b border-gray-200 fixed w-full z-50 top-0">
-      <div class="container mx-auto px-4 h-16 flex justify-between items-center max-w-5xl">
-        <a href="cars.html" class="text-sm font-bold flex items-center text-gray-600">
-          <i class="ri-arrow-left-s-line text-lg mr-1"></i> 一覧へ戻る
+    <!-- Google Analytics (GA4) のダミーコード -->
+    <!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    -->
+  </head>
+  <body class="bg-white pb-24 md:pb-0 relative">
+
+    <!-- Header -->
+    <header class="bg-white border-b border-gray-200 fixed w-full z-40 top-0 shadow-sm">
+      <div class="container mx-auto px-4 h-16 flex justify-between items-center">
+        <a href="index.html" class="flex items-center">
+          <div class="h-10 w-10 rounded-full bg-gray-100 border border-gray-200 flex items-center justify-center overflow-hidden text-[8px] text-gray-400">
+            <!-- ロゴ画像 -->
+          </div>
         </a>
-        <a href="index.html" class="text-xl logo text-primary">Carpath</a>
+        <nav class="hidden lg:flex space-x-6 text-sm font-medium text-gray-900">
+          <a href="cars.html" class="font-bold border-b-2 border-primary py-5 text-primary">お車を探す</a>
+          <a href="maintenance.html" class="hover:text-primary transition-colors py-5">車検・整備</a>
+          <a href="wash.html" class="hover:text-primary transition-colors py-5">洗車</a>
+          <a href="coating.html" class="hover:text-primary transition-colors py-5">コーティング</a>
+          <a href="purchase.html" class="hover:text-primary transition-colors py-5">買取・廃車</a>
+          <a href="insurance.html" class="hover:text-primary transition-colors py-5">自動車保険</a>
+        </nav>
+        <button id="mobile-menu-btn" class="lg:hidden text-2xl text-primary p-2">
+          <i class="ri-menu-line"></i>
+        </button>
       </div>
+      <nav id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg">
+        <div class="flex flex-col px-4 py-4 space-y-4 text-sm font-medium">
+          <a href="index.html" class="block py-2 border-b border-gray-50">トップページ</a>
+          <a href="cars.html" class="block py-2 border-b border-gray-50 text-primary font-bold">お車を探す</a>
+          <a href="maintenance.html" class="block py-2 border-b border-gray-50">車検・整備</a>
+          <a href="wash.html" class="block py-2 border-b border-gray-50">洗車</a>
+          <a href="coating.html" class="block py-2 border-b border-gray-50">コーティング</a>
+          <a href="purchase.html" class="block py-2 border-b border-gray-50">買取・廃車</a>
+          <a href="insurance.html" class="block py-2">自動車保険</a>
+        </div>
+      </nav>
     </header>
 
     <main class="pt-24 pb-20">
-      <div class="container mx-auto px-4 max-w-5xl">
+      <div class="container mx-auto px-4 max-w-4xl">
         
-        <!-- Header Info -->
-        <div class="mb-8">
-          <span class="border border-primary text-primary text-xs px-2 py-1 mb-3 inline-block">届出済未使用車</span>
-          <h1 class="text-2xl md:text-3xl font-bold mb-2">スズキ ジムニー 660 XC 4WD</h1>
-          <p class="text-sm text-gray-500">5MT / 登録済未使用車 / 純正ナビ / バックカメラ</p>
+        <!-- パンくずリスト -->
+        <nav class="text-xs text-gray-500 mb-6 flex items-center">
+          <a href="index.html" class="hover:underline">トップ</a>
+          <i class="ri-arrow-right-s-line mx-1"></i>
+          <a href="cars.html" class="hover:underline">在庫一覧</a>
+          <i class="ri-arrow-right-s-line mx-1"></i>
+          <span class="text-gray-900 font-medium">【メーカー】 【車種名】</span>
+        </nav>
+
+        <!-- タイトル＆価格 -->
+        <div class="mb-8 border-b-2 border-primary pb-6">
+          <div class="flex flex-wrap items-center gap-2 mb-2">
+            <span class="bg-primary text-white text-xs font-bold px-2 py-1 rounded">登録済未使用車</span>
+            <span class="bg-gray-200 text-gray-700 text-xs font-bold px-2 py-1 rounded">修復歴なし</span>
+          </div>
+          <h1 class="text-2xl md:text-3xl font-bold mb-4 text-gray-900">
+            スズキ ジムニー 660 XC 4WD <!-- ※ここを書き換える -->
+          </h1>
+          <p class="text-sm text-gray-600 mb-4">5MT / 純正ナビ / バックカメラ / シートヒーター</p>
+          
+          <div class="flex items-end gap-3 bg-gray-50 p-4 rounded-lg">
+            <div>
+              <span class="text-sm font-bold text-gray-700 block mb-1">支払総額（税込）</span>
+              <div class="flex items-baseline">
+                <span class="text-3xl md:text-4xl font-bold text-red-600">215.0</span>
+                <span class="text-base font-bold text-red-600 ml-1">万円</span>
+              </div>
+            </div>
+            <div class="ml-auto text-right">
+              <span class="text-xs text-gray-500 block">車両本体価格: 205.0万円</span>
+              <span class="text-xs text-gray-500 block">諸費用: 10.0万円</span>
+            </div>
+          </div>
         </div>
 
-        <div class="flex flex-col lg:flex-row gap-10">
-          <!-- Left: Images & Comment -->
-          <div class="lg:w-2/3">
-            <div class="bg-gray-100 aspect-[3/2] flex items-center justify-center text-gray-400 mb-2">
-                          </div>
-            <div class="grid grid-cols-5 gap-2 mb-12">
-              <div class="bg-gray-100 aspect-[4/3] flex items-center justify-center text-xs text-gray-400 border border-primary">[Image]</div>
-              <div class="bg-gray-100 aspect-[4/3] flex items-center justify-center text-xs text-gray-400">[Image]</div>
-              <div class="bg-gray-100 aspect-[4/3] flex items-center justify-center text-xs text-gray-400">[Image]</div>
-              <div class="bg-gray-100 aspect-[4/3] flex items-center justify-center text-xs text-gray-400">[Image]</div>
-              <div class="bg-gray-100 aspect-[4/3] flex items-center justify-center text-xs text-gray-400">[Image]</div>
-            </div>
+        <!-- 画像ギャラリー (シンプル版) -->
+        <div class="mb-12">
+          <!-- メイン画像 -->
+          <div class="bg-gray-100 aspect-[4/3] md:aspect-[16/9] w-full flex items-center justify-center text-gray-400 mb-4 rounded-xl overflow-hidden border border-gray-200">
+            <span class="text-sm">メイン画像（外観フロント等）</span>
+          </div>
+          <!-- サムネイル群 -->
+          <div class="grid grid-cols-4 md:grid-cols-5 gap-2">
+            <div class="bg-gray-100 aspect-[4/3] rounded border border-gray-200 flex justify-center items-center text-[10px] text-gray-400">画像1</div>
+            <div class="bg-gray-100 aspect-[4/3] rounded border border-gray-200 flex justify-center items-center text-[10px] text-gray-400">画像2</div>
+            <div class="bg-gray-100 aspect-[4/3] rounded border border-gray-200 flex justify-center items-center text-[10px] text-gray-400">画像3</div>
+            <div class="bg-gray-100 aspect-[4/3] rounded border border-gray-200 flex justify-center items-center text-[10px] text-gray-400">画像4</div>
+            <div class="bg-gray-100 aspect-[4/3] rounded border border-gray-200 hidden md:flex justify-center items-center text-[10px] text-gray-400">画像5</div>
+          </div>
+        </div>
 
-            <h2 class="text-lg font-bold border-b border-primary pb-2 mb-4">車両紹介</h2>
-            <p class="text-sm leading-relaxed mb-8">
-              人気の現行ジムニー、最上位グレード「XC」の5速マニュアル車が入庫しました。届出済未使用車のため、新車をご検討中の方にも非常におすすめの一台です。<br><br>
-              純正ナビゲーションとバックカメラを装着済みですので、すぐにお乗り出しいただけます。当店の在庫はすべて認証工場にて121項目の点検を実施してからお届けいたします。
+        <!-- アピールポイント -->
+        <div class="mb-12">
+          <h2 class="text-xl font-bold mb-4 border-l-4 border-primary pl-3">おすすめポイント</h2>
+          <div class="bg-blue-50 p-6 rounded-lg text-sm leading-relaxed text-gray-800">
+            <p>
+              大人気のジムニーXC（最上級グレード）が入庫しました！登録済みの未使用車ですので、新車特有の長い納期を待つことなくすぐにお乗りいただけます。<br><br>
+              5速マニュアル車で、ジムニー本来の走りの楽しさを存分に味わえます。純正のナビゲーションとバックカメラを既に装備しているため、追加費用が抑えられるのも嬉しいポイントです。ぜひ一度、実車をご覧にお越しください。
             </p>
-
-            <h2 class="text-lg font-bold border-b border-primary pb-2 mb-4">基本情報</h2>
-            <table class="spec-table w-full text-sm mb-8">
-              <tr><th>年式</th><td>2024年(R6)</td><th>車体色</th><td>ピュアホワイトパール</td></tr>
-              <tr><th>走行距離</th><td>10km</td><th>排気量</th><td>660cc</td></tr>
-              <tr><th>車検期限</th><td>2027年(R9)05月</td><th>駆動方式</th><td>4WD</td></tr>
-              <tr><th>修復歴</th><td>なし</td><th>ミッション</th><td>5MT</td></tr>
-            </table>
           </div>
-
-          <!-- Right: Price & CTA (Sticky on Desktop) -->
-          <div class="lg:w-1/3">
-            <div class="bg-gray-50 p-6 lg:sticky lg:top-24">
-              <div class="mb-6">
-                <p class="text-sm font-bold mb-1">支払総額（税込）</p>
-                <div class="flex items-baseline gap-1 mb-4">
-                  <span class="text-4xl font-bold text-red-600">215.0</span>
-                  <span class="text-lg font-bold text-red-600">万円</span>
-                </div>
-                <div class="flex justify-between text-sm border-t border-gray-200 pt-3">
-                  <span class="text-gray-600">車両本体価格</span>
-                  <span class="font-bold">205.0万円</span>
-                </div>
-                <div class="flex justify-between text-sm mt-2">
-                  <span class="text-gray-600">諸費用合計</span>
-                  <span class="font-bold">10.0万円</span>
-                </div>
-              </div>
-
-              <div class="space-y-3">
-                <button class="w-full bg-lineGreen text-white py-4 font-bold flex items-center justify-center">
-                  <i class="ri-line-fill mr-2"></i> LINEで在庫確認・見積り
-                </button>
-                <a href="tel:0859-33-9991" class="w-full border border-primary text-primary py-4 font-bold flex items-center justify-center bg-white">
-                  <i class="ri-phone-fill mr-2"></i> 電話でお問い合わせ
-                </a>
-              </div>
-              <p class="text-xs text-gray-500 mt-4 text-center">※支払総額には保険料・税金・登録等に伴う費用が含まれています。</p>
-            </div>
-          </div>
-
         </div>
+
+        <!-- 基本スペック -->
+        <div class="mb-16">
+          <h2 class="text-xl font-bold mb-4 border-l-4 border-primary pl-3">基本情報</h2>
+          <table class="spec-table">
+            <tbody>
+              <tr><th>年式</th><td>2024(R6)年</td><th>走行距離</th><td>10km</td></tr>
+              <tr><th>車検</th><td>R9年05月</td><th>排気量</th><td>660cc</td></tr>
+              <tr><th>修復歴</th><td>なし</td><th>ミッション</th><td>5MT</td></tr>
+              <tr><th>ボディ色</th><td>ジャングルグリーン</td><th>駆動方式</th><td>4WD</td></tr>
+              <tr><th>使用歴</th><td>自家用（未使用車）</td><th>車台番号(下3桁)</th><td>123</td></tr>
+            </tbody>
+          </table>
+          <p class="text-[10px] text-gray-500 mt-2">※支払総額には、車両本体価格の他、保険料、税金、登録等に伴う費用、リサイクル預託金相当額等、購入の際に必要な全ての費用が含まれています（管轄内登録・店頭納車の場合）。</p>
+        </div>
+
+        <!-- 🌟 CTA Section (最高単価Aランク向けの超強力なコンポーネント) -->
+        <div class="bg-gradient-to-br from-blue-50 to-white border border-blue-200 p-6 md:p-10 text-center rounded-2xl shadow-lg relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-blue-100 rounded-full opacity-50 -mr-10 -mt-10 blur-2xl"></div>
+          
+          <span class="inline-block bg-primary text-white text-xs font-bold px-4 py-1.5 rounded-full mb-4 relative z-10 shadow-sm">
+            無料・24時間受付
+          </span>
+          <h2 class="text-2xl md:text-3xl font-bold mb-4 text-gray-900 relative z-10">
+            このお車の在庫確認・お見積り
+          </h2>
+          <p class="text-sm md:text-base leading-relaxed text-gray-700 mb-8 relative z-10 max-w-xl mx-auto">
+            中古車は<strong class="text-red-600">1台限りの早い者勝ち</strong>です。<br>
+            「まだあるかな？」「ローンだと月々いくら？」など、気になることがあれば今すぐお気軽にお問い合わせください。
+          </p>
+          
+          <div class="flex flex-col sm:flex-row justify-center gap-4 relative z-10">
+            <!-- LINEボタン（click_car_detail_line） -->
+            <button 
+               data-ga-event="click_car_detail_line"
+               class="flex-1 max-w-sm mx-auto sm:mx-0 bg-lineGreen text-white p-4 rounded-xl hover:bg-lineGreenHover transition-all duration-300 shadow-md hover:shadow-lg group">
+              <span class="block text-xs font-bold mb-1 opacity-90">一番人気！写真や動画も送れます</span>
+              <div class="flex items-center justify-center text-xl font-bold">
+                <i class="ri-line-fill mr-2 text-2xl group-hover:scale-110 transition-transform"></i> LINEで在庫確認
+              </div>
+            </button>
+
+            <!-- 電話ボタン（click_car_detail_tel） -->
+            <a href="tel:0859-33-9991" 
+               data-ga-event="click_car_detail_tel"
+               class="flex-1 max-w-sm mx-auto sm:mx-0 bg-white border-2 border-primary text-primary p-4 rounded-xl hover:bg-primary hover:text-white transition-all duration-300 shadow-md hover:shadow-lg group">
+              <span class="block text-xs font-bold mb-1 opacity-80">お急ぎの方・直接話したい方</span>
+              <div class="flex items-center justify-center text-xl font-bold">
+                <i class="ri-phone-fill mr-2 text-2xl group-hover:rotate-12 transition-transform"></i> 0859-33-9991
+              </div>
+            </a>
+          </div>
+          <p class="text-xs text-gray-500 mt-4 relative z-10">※無理な営業電話などは一切いたしませんのでご安心ください。</p>
+        </div>
+
       </div>
     </main>
 
-    <!-- Mobile Sticky CTA -->
-    <div class="md:hidden fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 flex z-50 h-16">
-      <a href="tel:0859-33-9991" class="flex-1 flex items-center justify-center text-primary font-bold text-sm border-r border-gray-200">
-        <i class="ri-phone-fill mr-1"></i> 電話
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-12 text-sm pb-32 md:pb-12 mt-12">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+          <a href="index.html" class="block mb-6 md:mb-0">
+            <div class="h-12 w-12 rounded-full bg-white border border-gray-200 flex items-center justify-center overflow-hidden text-[8px] text-gray-400">
+              <!-- ロゴ画像 -->
+            </div>
+          </a>
+          <div class="flex flex-wrap justify-center gap-4 md:gap-6">
+            <a href="cars.html" class="hover:text-gray-400">お車を探す</a>
+            <a href="maintenance.html" class="hover:text-gray-400">車検・整備</a>
+            <a href="wash.html" class="hover:text-gray-400">洗車</a>
+            <a href="coating.html" class="hover:text-gray-400">コーティング</a>
+            <a href="purchase.html" class="hover:text-gray-400">買取・廃車</a>
+            <a href="insurance.html" class="hover:text-gray-400">自動車保険</a>
+          </div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-xs">
+          © 2026 株式会社パルマス Carpath. All rights reserved.
+        </div>
+      </div>
+    </footer>
+
+    <!-- 🌟【改修版】Mobile Sticky CTA (スマホ用 フローティングCTA) -->
+    <div class="md:hidden fixed bottom-4 left-4 right-4 z-50 flex gap-3 safe-pb">
+      
+      <!-- 電話ボタン (イベント: click_car_detail_tel) -->
+      <a href="tel:0859-33-9991" 
+         data-ga-event="click_car_detail_tel"
+         class="flex-1 bg-white border-2 border-primary text-primary rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.15)] flex flex-col items-center justify-center py-2.5 active:scale-95 transition-transform">
+        <span class="text-[10px] font-bold mb-0.5 text-gray-500">お急ぎの方</span>
+        <div class="flex items-center text-sm font-bold">
+          <i class="ri-phone-fill text-xl mr-1"></i> 電話で確認
+        </div>
       </a>
-      <a href="#" class="flex-1 flex items-center justify-center bg-lineGreen text-white font-bold text-sm">
-        <i class="ri-line-fill mr-1 text-lg"></i> LINE
+      
+      <!-- LINEボタン (イベント: click_car_detail_line) -->
+      <a href="#" 
+         data-ga-event="click_car_detail_line"
+         class="flex-1 bg-lineGreen text-white rounded-2xl shadow-[0_4px_20px_rgba(0,199,85,0.3)] flex flex-col items-center justify-center py-2.5 active:scale-95 transition-transform">
+        <span class="text-[10px] font-bold mb-0.5 opacity-90">1台限りの早い者勝ち</span>
+        <div class="flex items-center text-[15px] font-bold">
+          <i class="ri-line-fill text-xl mr-1"></i> 在庫確認・見積
+        </div>
       </a>
+      
     </div>
+
+    <!-- JavaScript -->
+    <script>
+      document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+        document.getElementById('mobile-menu').classList.toggle('hidden');
+      });
+
+      // 🌟 GA4 イベントトラッキング共通モジュール
+      document.addEventListener('DOMContentLoaded', () => {
+        const trackElements = document.querySelectorAll('[data-ga-event]');
+        
+        trackElements.forEach(element => {
+          element.addEventListener('click', function(e) {
+            const eventName = this.getAttribute('data-ga-event');
+            
+            if (typeof gtag === 'function') {
+              gtag('event', eventName, {
+                'event_category': 'CTA_Click',
+                'event_label': window.location.pathname, // ここで car-detail-jimny-001.html などのファイル名が送られる
+                'page_type': 'car_detail' // 車両詳細ページとしての識別子
+              });
+              console.log('GA4送信完了:', eventName);
+            } else {
+              console.log('[テスト用] GA4イベント発火:', eventName);
+            }
+          });
+        });
+      });
+    </script>
   </body>
 </html>
