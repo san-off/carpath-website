@@ -15,6 +15,7 @@
               primary: '#2B2C68',
               accent: '#2563EB',
               lineGreen: '#06C755',
+              lineGreenHover: '#05B34C',
             },
             fontFamily: {
               sans: ['"Noto Sans JP"', 'sans-serif'],
@@ -27,36 +28,53 @@
     <style>
       body { font-family: 'Noto Sans JP', sans-serif; letter-spacing: 0.05em; color: #333; }
       .logo { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; letter-spacing: 0.1em; }
+      /* iOSのセーフエリア（ホームバーなど）を考慮した余白 */
+      @supports (padding-bottom: env(safe-area-inset-bottom)) {
+        .safe-pb { padding-bottom: calc(1rem + env(safe-area-inset-bottom)); }
+      }
     </style>
-  </head>
-  <body class="bg-white pb-16 md:pb-0">
 
-    <header class="bg-white border-b border-gray-200 fixed w-full z-50 top-0">
+    <!-- Google Analytics (GA4) のダミーコード -->
+    <!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    -->
+  </head>
+  <body class="bg-white pb-24 md:pb-0 relative">
+
+    <header class="bg-white border-b border-gray-200 fixed w-full z-40 top-0 shadow-sm">
       <div class="container mx-auto px-4 h-16 flex justify-between items-center">
         <a href="index.html" class="flex items-center">
           <div class="h-10 w-10 rounded-full bg-gray-100 border border-gray-200 flex items-center justify-center overflow-hidden text-[8px] text-gray-400">
-            
+            <!-- ロゴ画像 -->
           </div>
         </a>
-        <nav class="hidden lg:flex space-x-8 text-sm font-medium text-gray-900">
-          <a href="cars.html" class="hover:text-gray-500 py-5">お車を探す</a>
-          <a href="maintenance.html" class="hover:text-gray-500 py-5">車検・整備</a>
-          <a href="wash.html" class="hover:text-gray-500 py-5">洗車</a>
-          <a href="purchase.html" class="font-bold border-b-2 border-primary py-5">買取・廃車</a>
-          <a href="insurance.html" class="hover:text-gray-500 py-5">自動車保険</a>
+        <nav class="hidden lg:flex space-x-6 text-sm font-medium text-gray-900">
+          <a href="cars.html" class="hover:text-primary transition-colors py-5">お車を探す</a>
+          <a href="maintenance.html" class="hover:text-primary transition-colors py-5">車検・整備</a>
+          <a href="wash.html" class="hover:text-primary transition-colors py-5">洗車</a>
+          <a href="coating.html" class="hover:text-primary transition-colors py-5">コーティング</a>
+          <a href="purchase.html" class="font-bold border-b-2 border-primary py-5 text-primary">買取・廃車</a>
+          <a href="insurance.html" class="hover:text-primary transition-colors py-5">自動車保険</a>
         </nav>
         <button id="mobile-menu-btn" class="lg:hidden text-2xl text-primary p-2">
           <i class="ri-menu-line"></i>
         </button>
       </div>
-      <nav id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 absolute w-full">
+      <nav id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg">
         <div class="flex flex-col px-4 py-4 space-y-4 text-sm font-medium">
-          <a href="index.html" class="block">トップページ</a>
-          <a href="cars.html" class="block">お車を探す</a>
-          <a href="maintenance.html" class="block">車検・整備</a>
-          <a href="wash.html" class="block">洗車</a>
-          <a href="purchase.html" class="block text-primary font-bold">買取・廃車</a>
-          <a href="insurance.html" class="block">自動車保険</a>
+          <a href="index.html" class="block py-2 border-b border-gray-50">トップページ</a>
+          <a href="cars.html" class="block py-2 border-b border-gray-50">お車を探す</a>
+          <a href="maintenance.html" class="block py-2 border-b border-gray-50">車検・整備</a>
+          <a href="wash.html" class="block py-2 border-b border-gray-50">洗車</a>
+          <a href="coating.html" class="block py-2 border-b border-gray-50">コーティング</a>
+          <a href="purchase.html" class="block py-2 border-b border-gray-50 text-primary font-bold">買取・廃車</a>
+          <a href="insurance.html" class="block py-2">自動車保険</a>
         </div>
       </nav>
     </header>
@@ -73,7 +91,7 @@
           </p>
         </div>
 
-        <div class="bg-gray-50 p-8 mb-16 border border-gray-200">
+        <div class="bg-gray-50 p-8 mb-16 border border-gray-200 rounded-xl">
           <h3 class="text-lg font-bold mb-4 text-primary">米子市内・近隣エリア 無料出張査定</h3>
           <p class="text-sm text-gray-700 mb-4">
             「忙しい」「車検が切れている」「しばらく動かしていない」<br>
@@ -82,30 +100,37 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
-          <div>
+          <div class="border border-gray-100 p-6 rounded-lg shadow-sm">
             <h3 class="text-lg font-bold mb-4 border-b border-gray-200 pb-2">愛車買取</h3>
             <p class="text-sm text-gray-600 mb-4">自社で整備・販売まで行うため、中間コストをカットし高価買取を実現。メーカーを問わず、お車の状態や価値をしっかりと見極めて適正に評価いたします。</p>
           </div>
-          <div>
+          <div class="border border-gray-100 p-6 rounded-lg shadow-sm">
             <h3 class="text-lg font-bold mb-4 border-b border-gray-200 pb-2">どんなお車でもご相談ください</h3>
             <p class="text-sm text-gray-600 mb-4">年式が古いお車や、走行距離の多いお車、しばらく乗っていないお車でも、部品や資源としての価値を見出します。お引き取りの段取りなど、お気軽にご相談ください。</p>
           </div>
         </div>
 
-        <!-- CTA Section -->
-        <div class="bg-gray-50 border border-gray-200 p-8 md:p-12 text-center mt-12 mb-8">
-          <h2 class="text-xl md:text-2xl font-bold mb-4">お車の査定・お引き取りのご相談</h2>
+        <!-- 🌟 CTA Section (デザイン改善＆GA4イベント追加) -->
+        <div class="bg-blue-50/50 border border-blue-100 p-8 md:p-12 text-center mt-12 mb-8 rounded-2xl">
+          <span class="inline-block bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full mb-3">
+            出張費・キャンセル料無料
+          </span>
+          <h2 class="text-xl md:text-2xl font-bold mb-4 text-gray-900">お車の査定・お引き取りのご相談</h2>
           <p class="text-sm leading-relaxed text-gray-700 mb-8">
             米子市内および近隣エリアへの無料出張査定を承っております。<br class="hidden md:block">
-            「まずは金額だけ知りたい」という方も、LINEでお車の写真を送るだけで概算査定が可能です。<br>
+            「まずは金額だけ知りたい」という方も、お手元のスマホで<strong class="text-primary">LINEでお車の写真を送るだけ</strong>で概算査定が可能です。<br>
             出張費やキャンセル料は一切いただきませんので、安心してお問い合わせください。
           </p>
           <div class="flex flex-col sm:flex-row justify-center gap-4">
-            <button class="bg-lineGreen text-white px-8 py-4 font-bold text-sm flex items-center justify-center hover:bg-green-600 transition-colors">
-              <i class="ri-line-fill mr-2 text-lg"></i> LINEで無料査定
+            <button 
+               data-ga-event="click_purchase_line"
+               class="bg-lineGreen text-white px-8 py-4 font-bold text-sm flex items-center justify-center rounded-xl hover:bg-lineGreenHover transition-colors shadow-sm hover:shadow-md">
+              <i class="ri-line-fill mr-2 text-xl"></i> LINEで無料査定
             </button>
-            <a href="tel:0859-33-9991" class="bg-white border border-primary text-primary px-8 py-4 font-bold text-sm flex items-center justify-center hover:bg-gray-50 transition-colors">
-              <i class="ri-phone-fill mr-2"></i> 無料出張を依頼する
+            <a href="tel:0859-33-9991" 
+               data-ga-event="click_purchase_tel"
+               class="bg-white border-2 border-primary text-primary px-8 py-4 font-bold text-sm flex items-center justify-center rounded-xl hover:bg-primary hover:text-white transition-colors shadow-sm hover:shadow-md">
+              <i class="ri-phone-fill mr-2 text-lg"></i> 無料出張を依頼する
             </a>
           </div>
         </div>
@@ -114,18 +139,19 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-primary text-white py-12 text-sm">
+    <footer class="bg-primary text-white py-12 text-sm pb-32 md:pb-12">
       <div class="container mx-auto px-4">
         <div class="flex flex-col md:flex-row justify-between items-center mb-8">
           <a href="index.html" class="block mb-6 md:mb-0">
             <div class="h-12 w-12 rounded-full bg-white border border-gray-200 flex items-center justify-center overflow-hidden text-[8px] text-gray-400">
-              
+              <!-- ロゴ画像 -->
             </div>
           </a>
           <div class="flex flex-wrap justify-center gap-4 md:gap-6">
             <a href="cars.html" class="hover:text-gray-400">お車を探す</a>
             <a href="maintenance.html" class="hover:text-gray-400">車検・整備</a>
             <a href="wash.html" class="hover:text-gray-400">洗車</a>
+            <a href="coating.html" class="hover:text-gray-400">コーティング</a>
             <a href="purchase.html" class="hover:text-gray-400">買取・廃車</a>
             <a href="insurance.html" class="hover:text-gray-400">自動車保険</a>
           </div>
@@ -136,19 +162,57 @@
       </div>
     </footer>
 
-    <!-- Mobile Sticky CTA -->
-    <div class="md:hidden fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 flex z-50 h-16">
-      <a href="tel:0859-33-9991" class="flex-1 flex items-center justify-center text-primary font-bold text-sm border-r border-gray-200">
-        <i class="ri-phone-fill mr-1"></i> 無料出張依頼
+    <!-- 🌟【改修版】Mobile Sticky CTA (スマホ用 フローティングCTA) -->
+    <div class="md:hidden fixed bottom-4 left-4 right-4 z-50 flex gap-3 safe-pb">
+      
+      <!-- 電話ボタン (イベント: click_purchase_tel) -->
+      <a href="tel:0859-33-9991" 
+         data-ga-event="click_purchase_tel"
+         class="flex-1 bg-white border-2 border-primary text-primary rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.15)] flex flex-col items-center justify-center py-2.5 active:scale-95 transition-transform">
+        <span class="text-[10px] font-bold mb-0.5 text-gray-500">お急ぎの方</span>
+        <div class="flex items-center text-sm font-bold">
+          <i class="ri-phone-fill text-xl mr-1"></i> 無料出張依頼
+        </div>
       </a>
-      <a href="#" class="flex-1 flex items-center justify-center bg-lineGreen text-white font-bold text-sm">
-        <i class="ri-line-fill mr-1 text-lg"></i> LINEで査定
+      
+      <!-- LINEボタン (イベント: click_purchase_line) -->
+      <a href="#" 
+         data-ga-event="click_purchase_line"
+         class="flex-1 bg-lineGreen text-white rounded-2xl shadow-[0_4px_20px_rgba(0,199,85,0.3)] flex flex-col items-center justify-center py-2.5 active:scale-95 transition-transform">
+        <span class="text-[10px] font-bold mb-0.5 opacity-90">写真を送るだけ</span>
+        <div class="flex items-center text-[15px] font-bold">
+          <i class="ri-line-fill text-xl mr-1"></i> LINEで査定
+        </div>
       </a>
+      
     </div>
 
+    <!-- JavaScript -->
     <script>
       document.getElementById('mobile-menu-btn').addEventListener('click', function() {
         document.getElementById('mobile-menu').classList.toggle('hidden');
+      });
+
+      // 🌟 GA4 イベントトラッキング共通モジュール
+      document.addEventListener('DOMContentLoaded', () => {
+        const trackElements = document.querySelectorAll('[data-ga-event]');
+        
+        trackElements.forEach(element => {
+          element.addEventListener('click', function(e) {
+            const eventName = this.getAttribute('data-ga-event');
+            
+            if (typeof gtag === 'function') {
+              gtag('event', eventName, {
+                'event_category': 'CTA_Click',
+                'event_label': window.location.pathname,
+                'page_type': 'purchase' // 買取・廃車ページとしての識別子
+              });
+              console.log('GA4送信完了:', eventName);
+            } else {
+              console.log('[テスト用] GA4イベント発火:', eventName);
+            }
+          });
+        });
       });
     </script>
   </body>
