@@ -15,6 +15,7 @@
               primary: '#2B2C68',
               accent: '#2563EB',
               lineGreen: '#06C755',
+              lineGreenHover: '#05B34C',
             },
             fontFamily: {
               sans: ['"Noto Sans JP"', 'sans-serif'],
@@ -27,32 +28,53 @@
     <style>
       body { font-family: 'Noto Sans JP', sans-serif; letter-spacing: 0.05em; color: #333; }
       .logo { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; letter-spacing: 0.1em; }
+      /* iOSのセーフエリア（ホームバーなど）を考慮した余白 */
+      @supports (padding-bottom: env(safe-area-inset-bottom)) {
+        .safe-pb { padding-bottom: calc(1rem + env(safe-area-inset-bottom)); }
+      }
     </style>
-  </head>
-  <body class="bg-white pb-16 md:pb-0">
 
-    <header class="bg-white border-b border-gray-200 fixed w-full z-50 top-0">
+    <!-- Google Analytics (GA4) のダミーコード -->
+    <!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    -->
+  </head>
+  <body class="bg-white pb-24 md:pb-0 relative">
+
+    <header class="bg-white border-b border-gray-200 fixed w-full z-40 top-0 shadow-sm">
       <div class="container mx-auto px-4 h-16 flex justify-between items-center">
         <a href="index.html" class="flex items-center">
           <div class="h-10 w-10 rounded-full bg-gray-100 border border-gray-200 flex items-center justify-center overflow-hidden text-[8px] text-gray-400">
-            
+            <!-- ロゴ画像 -->
           </div>
         </a>
         <nav class="hidden lg:flex space-x-8 text-sm font-medium text-gray-900">
-          <a href="cars.html" class="hover:text-gray-500 py-5">お車を探す</a>
-          <a href="maintenance.html" class="hover:text-gray-500 py-5">車検・整備</a>
-          <a href="wash.html" class="font-bold border-b-2 border-primary py-5">洗車</a>
-          <a href="purchase.html" class="hover:text-gray-500 py-5">買取・廃車</a>
-          <a href="insurance.html" class="hover:text-gray-500 py-5">自動車保険</a>
+          <a href="cars.html" class="hover:text-primary transition-colors py-5">お車を探す</a>
+          <a href="maintenance.html" class="hover:text-primary transition-colors py-5">車検・整備</a>
+          <a href="wash.html" class="font-bold border-b-2 border-primary py-5 text-primary">洗車</a>
+          <a href="coating.html" class="hover:text-primary transition-colors py-5">コーティング</a>
+          <a href="purchase.html" class="hover:text-primary transition-colors py-5">買取・廃車</a>
+          <a href="insurance.html" class="hover:text-primary transition-colors py-5">自動車保険</a>
         </nav>
         <button id="mobile-menu-btn" class="lg:hidden text-2xl text-primary p-2">
           <i class="ri-menu-line"></i>
         </button>
       </div>
-      <nav id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 absolute w-full">
+      <nav id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg">
         <div class="flex flex-col px-4 py-4 space-y-4 text-sm font-medium">
-          <a href="index.html" class="block">トップページ</a>
-          <a href="wash.html" class="block text-primary font-bold">洗車</a>
+          <a href="index.html" class="block py-2 border-b border-gray-50">トップページ</a>
+          <a href="cars.html" class="block py-2 border-b border-gray-50">お車を探す</a>
+          <a href="maintenance.html" class="block py-2 border-b border-gray-50">車検・整備</a>
+          <a href="wash.html" class="block py-2 border-b border-gray-50 text-primary font-bold">洗車</a>
+          <a href="coating.html" class="block py-2 border-b border-gray-50">コーティング</a>
+          <a href="purchase.html" class="block py-2 border-b border-gray-50">買取・廃車</a>
+          <a href="insurance.html" class="block py-2">自動車保険</a>
         </div>
       </nav>
     </header>
@@ -62,8 +84,9 @@
         <h1 class="text-3xl font-bold mb-10 border-b-2 border-primary pb-2">CAR WASH<span class="block text-sm font-normal text-gray-500 mt-2">米子手洗い洗車館</span></h1>
 
         <div class="mb-16">
-          <div class="bg-gray-100 aspect-[2/1] w-full flex items-center justify-center text-gray-400 mb-8">
-                      </div>
+          <div class="bg-gray-100 aspect-[2/1] w-full flex items-center justify-center text-gray-400 mb-8 rounded-lg overflow-hidden">
+             <!-- イメージ画像 -->
+          </div>
           <h2 class="text-2xl font-bold mb-4">いつもの洗車、もっと「気持ちよく」</h2>
           <p class="text-sm leading-relaxed text-gray-700">
             機械洗車では届かない細部の汚れや、車内の気になるニオイ。Carpathの専任スタッフが、一台一台の状態を見極め、丁寧に手洗いします。<br>
@@ -74,7 +97,7 @@
         <h2 class="text-2xl font-bold mb-8">MENU & PRICE</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
           
-          <div class="border border-gray-200 p-6 flex flex-col">
+          <div class="border border-gray-200 p-6 flex flex-col rounded-lg">
             <h3 class="text-xl font-bold mb-4 border-b border-gray-200 pb-2">ベーシック</h3>
             <div class="mb-6 flex-grow">
               <p class="text-xs text-gray-500 mb-2">手洗い洗車基本コース</p>
@@ -86,7 +109,7 @@
             </div>
           </div>
 
-          <div class="border-2 border-primary p-6 flex flex-col">
+          <div class="border-2 border-primary p-6 flex flex-col rounded-lg shadow-sm">
             <span class="text-xs font-bold text-primary mb-1">RECOMMEND</span>
             <h3 class="text-xl font-bold mb-4 border-b border-gray-200 pb-2">スタンダード</h3>
             <div class="mb-6 flex-grow">
@@ -99,7 +122,7 @@
             </div>
           </div>
 
-          <div class="border border-gray-200 p-6 flex flex-col bg-gray-50">
+          <div class="border border-gray-200 p-6 flex flex-col bg-gray-50 rounded-lg">
             <h3 class="text-xl font-bold mb-4 border-b border-gray-300 pb-2">プレミアム</h3>
             <div class="mb-6 flex-grow">
               <p class="text-xs text-gray-500 mb-2">高品位コート＋ガラス撥水</p>
@@ -113,19 +136,26 @@
 
         </div>
 
-        <!-- CTA Section -->
-        <div class="bg-gray-50 border border-gray-200 p-8 md:p-12 text-center mt-12 mb-8">
-          <h2 class="text-xl md:text-2xl font-bold mb-4">ご予約・ご相談はお気軽に</h2>
+        <!-- 🌟 CTA Section (デザイン改善＆GA4イベント追加) -->
+        <div class="bg-blue-50/50 border border-blue-100 p-8 md:p-12 text-center mt-12 mb-8 rounded-2xl">
+          <span class="inline-block bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full mb-3">
+            事前予約がスムーズです
+          </span>
+          <h2 class="text-xl md:text-2xl font-bold mb-4 text-gray-900">ご予約・ご相談はお気軽に</h2>
           <p class="text-sm leading-relaxed text-gray-700 mb-8">
             週末は混み合うことがございますので、事前のご予約をおすすめしております。<br class="hidden md:block">
             また、洗車でお待ちの間に、お車の気になる調子や保険の見直しなど「車のプロ」に何でもご相談いただけます。
           </p>
           <div class="flex flex-col sm:flex-row justify-center gap-4">
-            <button class="bg-lineGreen text-white px-8 py-4 font-bold text-sm flex items-center justify-center hover:bg-green-600 transition-colors">
-              <i class="ri-line-fill mr-2 text-lg"></i> LINEで予約する
+            <button 
+               data-ga-event="click_wash_line"
+               class="bg-lineGreen text-white px-8 py-4 font-bold text-sm flex items-center justify-center rounded-xl hover:bg-lineGreenHover transition-colors shadow-sm hover:shadow-md">
+              <i class="ri-line-fill mr-2 text-xl"></i> LINEで空き状況を確認
             </button>
-            <a href="tel:0859-33-9991" class="bg-white border border-primary text-primary px-8 py-4 font-bold text-sm flex items-center justify-center hover:bg-gray-50 transition-colors">
-              <i class="ri-phone-fill mr-2"></i> 電話で予約する
+            <a href="tel:0859-33-9991" 
+               data-ga-event="click_wash_tel"
+               class="bg-white border-2 border-primary text-primary px-8 py-4 font-bold text-sm flex items-center justify-center rounded-xl hover:bg-primary hover:text-white transition-colors shadow-sm hover:shadow-md">
+              <i class="ri-phone-fill mr-2 text-lg"></i> 電話で予約する
             </a>
           </div>
         </div>
@@ -134,18 +164,19 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-primary text-white py-12 text-sm">
+    <footer class="bg-primary text-white py-12 text-sm pb-32 md:pb-12">
       <div class="container mx-auto px-4">
         <div class="flex flex-col md:flex-row justify-between items-center mb-8">
           <a href="index.html" class="block mb-6 md:mb-0">
             <div class="h-12 w-12 rounded-full bg-white border border-gray-200 flex items-center justify-center overflow-hidden text-[8px] text-gray-400">
-              
+              <!-- ロゴ画像 -->
             </div>
           </a>
           <div class="flex flex-wrap justify-center gap-4 md:gap-6">
             <a href="cars.html" class="hover:text-gray-400">お車を探す</a>
             <a href="maintenance.html" class="hover:text-gray-400">車検・整備</a>
             <a href="wash.html" class="hover:text-gray-400">洗車</a>
+            <a href="coating.html" class="hover:text-gray-400">コーティング</a>
             <a href="purchase.html" class="hover:text-gray-400">買取・廃車</a>
             <a href="insurance.html" class="hover:text-gray-400">自動車保険</a>
           </div>
@@ -156,19 +187,58 @@
       </div>
     </footer>
 
-    <!-- Mobile Sticky CTA -->
-    <div class="md:hidden fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 flex z-50 h-16">
-      <a href="tel:0859-33-9991" class="flex-1 flex items-center justify-center text-primary font-bold text-sm border-r border-gray-200">
-        <i class="ri-phone-fill mr-1"></i> 電話で予約
+    <!-- 🌟【改修版】Mobile Sticky CTA (スマホ用 フローティングCTA) -->
+    <div class="md:hidden fixed bottom-4 left-4 right-4 z-50 flex gap-3 safe-pb">
+      
+      <!-- 電話ボタン (イベント: click_wash_tel) -->
+      <a href="tel:0859-33-9991" 
+         data-ga-event="click_wash_tel"
+         class="flex-1 bg-white border-2 border-primary text-primary rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.15)] flex flex-col items-center justify-center py-2.5 active:scale-95 transition-transform">
+        <span class="text-[10px] font-bold mb-0.5 text-gray-500">お急ぎの方</span>
+        <div class="flex items-center text-sm font-bold">
+          <i class="ri-phone-fill text-xl mr-1"></i> 電話で予約
+        </div>
       </a>
-      <a href="#" class="flex-1 flex items-center justify-center bg-lineGreen text-white font-bold text-sm">
-        <i class="ri-line-fill mr-1 text-lg"></i> LINE予約
+      
+      <!-- LINEボタン (イベント: click_wash_line) -->
+      <a href="#" 
+         data-ga-event="click_wash_line"
+         class="flex-1 bg-lineGreen text-white rounded-2xl shadow-[0_4px_20px_rgba(0,199,85,0.3)] flex flex-col items-center justify-center py-2.5 active:scale-95 transition-transform">
+        <span class="text-[10px] font-bold mb-0.5 opacity-90">空き状況の確認</span>
+        <div class="flex items-center text-[15px] font-bold">
+          <i class="ri-line-fill text-xl mr-1"></i> LINE予約
+        </div>
       </a>
+      
     </div>
 
+    <!-- JavaScript -->
     <script>
+      // 1. モバイルメニューの開閉
       document.getElementById('mobile-menu-btn').addEventListener('click', function() {
         document.getElementById('mobile-menu').classList.toggle('hidden');
+      });
+
+      // 2. 🌟 GA4 イベントトラッキング共通モジュール
+      document.addEventListener('DOMContentLoaded', () => {
+        const trackElements = document.querySelectorAll('[data-ga-event]');
+        
+        trackElements.forEach(element => {
+          element.addEventListener('click', function(e) {
+            const eventName = this.getAttribute('data-ga-event');
+            
+            if (typeof gtag === 'function') {
+              gtag('event', eventName, {
+                'event_category': 'CTA_Click',
+                'event_label': window.location.pathname,
+                'page_type': 'wash' // 洗車ページとしての識別子
+              });
+              console.log('GA4送信完了:', eventName);
+            } else {
+              console.log('[テスト用] GA4イベント発火:', eventName);
+            }
+          });
+        });
       });
     </script>
   </body>
