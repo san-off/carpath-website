@@ -47,7 +47,7 @@
   </head>
   <body class="bg-white pb-24 md:pb-0 relative">
 
-    <!-- Header -->
+    <!-- Header (PCレイアウト崩れ修正版) -->
     <header class="bg-white border-b border-gray-200 fixed w-full z-40 top-0 shadow-sm">
       <div class="container mx-auto px-4 h-16 flex justify-between items-center">
         <a href="index.html" class="flex items-center">
@@ -55,6 +55,8 @@
             <!-- ロゴ画像 -->
           </div>
         </a>
+        
+        <!-- PC Navigation -->
         <nav class="hidden lg:flex space-x-6 text-sm font-medium text-gray-900">
           <a href="cars.html" class="font-bold border-b-2 border-primary text-primary py-5">お車を探す</a>
           <a href="maintenance.html" class="hover:text-primary transition-colors py-5">車検・整備</a>
@@ -63,12 +65,16 @@
           <a href="purchase.html" class="hover:text-primary transition-colors py-5">買取・廃車</a>
           <a href="insurance.html" class="hover:text-primary transition-colors py-5">自動車保険</a>
         </nav>
+
+        <!-- ハンバーガーボタン ラッパー -->
         <div class="flex items-center space-x-4">
           <button id="mobile-menu-btn" class="lg:hidden text-2xl text-primary p-2">
             <i class="ri-menu-line"></i>
           </button>
         </div>
       </div>
+
+      <!-- Mobile Menu -->
       <nav id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg">
         <div class="flex flex-col px-4 py-4 space-y-4 text-sm font-medium">
           <a href="index.html" class="block py-2 border-b border-gray-50">トップページ</a>
@@ -81,10 +87,13 @@
         </div>
       </nav>
     </header>
-    
+
     <main class="pt-24 pb-20">
       <div class="container mx-auto px-4 max-w-4xl">
-        <h1 class="text-2xl font-bold mb-10 border-b-2 border-primary pb-2">在庫一覧</h1>
+        <h1 class="text-3xl font-bold mb-8 border-b-2 border-primary pb-2">CARS<span class="block text-sm font-normal text-gray-500 mt-2">お車を探す</span></h1>
+
+        <!-- 既存の在庫一覧 (優先的に販売するため上部に配置) -->
+        <h2 class="text-2xl font-bold mb-6 border-l-4 border-primary pl-3">現在の展示・在庫車両</h2>
 
         <!-- Car Item 1 -->
         <div class="py-8 border-b border-gray-200 flex flex-col md:flex-row gap-6">
@@ -93,7 +102,7 @@
           </div>
           <div class="md:w-2/3 flex flex-col justify-between">
             <div>
-              <h2 class="text-xl font-bold mb-2">スズキ ジムニー 660 XC 4WD</h2>
+              <h3 class="text-xl font-bold mb-2">スズキ ジムニー 660 XC 4WD</h3>
               <p class="text-xs text-gray-500 mb-4">5MT / 登録済未使用車 / 純正ナビ / バックカメラ</p>
               
               <div class="flex items-baseline gap-2 mb-4">
@@ -125,7 +134,7 @@
           </div>
           <div class="md:w-2/3 flex flex-col justify-between">
             <div>
-              <h2 class="text-xl font-bold mb-2">ダイハツ タント カスタムRS</h2>
+              <h3 class="text-xl font-bold mb-2">ダイハツ タント カスタムRS</h3>
               <p class="text-xs text-gray-500 mb-4">両側パワースライド / 全周囲カメラ / シートヒーター</p>
               
               <div class="flex items-baseline gap-2 mb-4">
@@ -141,9 +150,9 @@
               </div>
             </div>
             <div class="flex gap-2">
-              <button 
+              <a href="#" 
                  data-ga-event="click_cars_list_detail"
-                 class="flex-1 border border-primary text-primary py-3 text-center text-sm font-bold rounded-lg hover:bg-gray-50 transition-colors">詳細を見る</button>
+                 class="flex-1 border border-primary text-primary py-3 text-center text-sm font-bold rounded-lg hover:bg-gray-50 transition-colors">詳細を見る</a>
               <button 
                  data-ga-event="click_cars_list_line"
                  class="flex-1 bg-lineGreen text-white py-3 text-center text-sm font-bold rounded-lg hover:bg-lineGreenHover transition-colors">LINEで問合せ</button>
@@ -151,11 +160,55 @@
           </div>
         </div>
 
+        <!-- 🌟【追加】注文販売・全メーカー新車販売アピールセクション (在庫の後に配置) -->
+        <div class="bg-gradient-to-br from-blue-50 to-white border border-blue-200 p-6 md:p-8 rounded-2xl shadow-sm mt-16 relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-blue-100 rounded-full opacity-50 -mr-10 -mt-10 blur-2xl"></div>
+          
+          <h2 class="text-xl md:text-2xl font-bold mb-6 text-gray-900 text-center relative z-10">
+            在庫にご希望の車がなくてもご安心ください！
+          </h2>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 relative z-10">
+            <!-- 注文販売アピール -->
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+              <h3 class="font-bold text-lg mb-3 flex items-center text-primary">
+                <i class="ri-search-car-line mr-2 text-2xl"></i> 全国のオークションからお取り寄せ
+              </h3>
+              <p class="text-sm text-gray-600 leading-relaxed">
+                店頭にないお車でも、全国のオートオークション等からお客様のご希望・ご予算にピッタリの一台をお探しします。「こんな車ある？」とお気軽にご相談ください。
+              </p>
+            </div>
+            <!-- 新車アピール -->
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+              <h3 class="font-bold text-lg mb-3 flex items-center text-primary">
+                <i class="ri-car-line mr-2 text-2xl"></i> 全メーカーの新車も販売可能
+              </h3>
+              <p class="text-sm text-gray-600 leading-relaxed">
+                スズキ車はもちろん、トヨタ、ホンダ、ダイハツなど国産全メーカーの新車をお取り扱いしております。ディーラーを何店舗も回る手間なく、当店で比較・購入が可能です。
+              </p>
+            </div>
+          </div>
+
+          <div class="flex flex-col sm:flex-row justify-center gap-4 relative z-10">
+            <button 
+               data-ga-event="click_cars_order_line"
+               class="bg-lineGreen text-white px-8 py-4 font-bold text-sm flex items-center justify-center rounded-xl hover:bg-lineGreenHover transition-colors shadow-sm hover:shadow-md">
+              <i class="ri-line-fill mr-2 text-xl"></i> LINEでお探しの条件を伝える
+            </button>
+            <a href="tel:0859-33-9991" 
+               data-ga-event="click_cars_order_tel"
+               class="bg-white border-2 border-primary text-primary px-8 py-4 font-bold text-sm flex items-center justify-center rounded-xl hover:bg-primary hover:text-white transition-colors shadow-sm hover:shadow-md">
+              <i class="ri-phone-fill mr-2 text-lg"></i> 電話で車探し・新車を相談
+            </a>
+          </div>
+        </div>
+        <!-- 🌟 ここまで追加セクション -->
+
       </div>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-primary text-white py-12 text-sm pb-32 md:pb-12">
+    <footer class="bg-primary text-white py-12 text-sm pb-32 md:pb-12 mt-12">
       <div class="container mx-auto px-4">
         <div class="flex flex-col md:flex-row justify-between items-center mb-8">
           <a href="index.html" class="block mb-6 md:mb-0">
@@ -178,10 +231,10 @@
       </div>
     </footer>
 
-    <!-- 🌟【改修版】Mobile Sticky CTA (スマホ用 フローティングCTA) -->
+    <!-- Mobile Sticky CTA (フローティングCTA) -->
     <div class="md:hidden fixed bottom-4 left-4 right-4 z-50 flex gap-3 safe-pb">
       
-      <!-- 電話ボタン (イベント: click_cars_tel) -->
+      <!-- 電話ボタン -->
       <a href="tel:0859-33-9991" 
          data-ga-event="click_cars_tel"
          class="flex-1 bg-white border-2 border-primary text-primary rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.15)] flex flex-col items-center justify-center py-2.5 active:scale-95 transition-transform">
@@ -191,11 +244,11 @@
         </div>
       </a>
       
-      <!-- LINEボタン (イベント: click_cars_line) -->
+      <!-- LINEボタン -->
       <a href="#" 
          data-ga-event="click_cars_line"
          class="flex-1 bg-lineGreen text-white rounded-2xl shadow-[0_4px_20px_rgba(0,199,85,0.3)] flex flex-col items-center justify-center py-2.5 active:scale-95 transition-transform">
-        <span class="text-[10px] font-bold mb-0.5 opacity-90">写真で簡単</span>
+        <span class="text-[10px] font-bold mb-0.5 opacity-90">クルマ探し・相談</span>
         <div class="flex items-center text-[15px] font-bold">
           <i class="ri-line-fill text-xl mr-1"></i> LINE相談
         </div>
@@ -211,7 +264,7 @@
         menu.classList.toggle('hidden');
       });
 
-      // 2. 🌟 GA4 イベントトラッキング共通モジュール
+      // 2. GA4 イベントトラッキング共通モジュール
       document.addEventListener('DOMContentLoaded', () => {
         const trackElements = document.querySelectorAll('[data-ga-event]');
         
